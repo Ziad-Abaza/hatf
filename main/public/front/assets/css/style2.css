@@ -1,0 +1,259 @@
+    
+      /* Make the button smaller on big screens */
+      @media (min-width: 1200px) {
+        .carousel-control-prev {
+          left: -75px;
+        }
+
+        .carousel-control-next {
+          right: -75px;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .whatsapp-button {
+          font-size: 20px;
+          padding: 0px 10px;
+        }
+
+        .carousel-inner .carousel-item {
+          flex: 0 0 100% !important;
+        }
+      }
+
+      /* Add a white arrow to change slides */
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        filter: invert(1);
+      }
+
+      .media_jo {
+        padding-left: 0rem;
+      }
+
+      @media (min-width: 1400px) {
+        .media_jo {
+          padding: 0 21rem;
+        }
+      }
+      
+      @media (max-width: 1400px) and (min-width: 1200px) {
+        .media_jo {
+          padding: 0 19rem;
+        }
+      }
+      
+      @media (max-width: 1200px) and (min-width: 992px) {
+        .media_jo {
+          padding: 0 13rem;
+        }
+      }
+      
+      @media (max-width: 992px) and (min-width: 727px) {
+        .media_jo {
+          padding: 0 7rem;
+        }
+      }
+        
+      @media (max-width: 727px) and (min-width: 575px) {
+        .media_jo {
+          padding: 0 6rem;
+        }
+      }    
+      
+    .modal-custom {
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-body img {
+        max-width: 100%;
+        height: 100vh;
+        object-fit: contain;
+    }
+
+    
+    
+      .carousel-inner {
+        overflow: hidden;
+      }
+
+      .carousel-item {
+        transition: transform 0.6s ease;
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 5%;
+      }
+
+      .owl-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+      }
+
+      .owl-dot {
+        width: 10px;
+        height: 10px;
+        background: #ddd;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+
+      .owl-dot.active {
+        background: #000;
+      }
+    
+    
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        box-shadow: 0 0 16px -2px #bcbbba40;
+      }
+
+      .swiper-slide:hover img {
+        transform: scale(1.01);
+        box-shadow: 0 0 20px -1px #bcbbba40;
+      }
+
+      .aftar {
+        position: relative;
+
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        padding: 0;
+        box-shadow: 0 0 16px -2px #bcbbba40;
+      }
+
+      .aftar:hover {
+        box-shadow: 0 0 20px -1px #bcbbba40;
+      }
+
+      .aftar::after {
+        content: "غير متوفر!\A ستتوفر قريبا";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.696);
+        color: #a3a2a2;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        white-space: pre-line;
+      }
+
+      .swiper-slide a {
+        color: #515151;
+        padding: 8px 9px;
+        background: #a4a4a4;
+        border-radius: 6px;
+        font-family: ManchetteFine;
+        font-weight: 500;
+        font-size: 16px;
+        border: none;
+        transition: 0.5s;
+      }
+
+      .swiper-slide .fa-whatsapp {
+        color: #515151;
+        font-size: 15px;
+        transition: 0.5s;
+      }
+
+      .btn-close-custom {
+        background-color: white;
+        color: black;
+        border-radius: 27%;
+        width: 1.5rem;
+        height: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        z-index: 1000;
+      }
+      
+    .swiper-button-next, .swiper-button-prev {
+      color: #fff;
+      border-radius: 50%;
+      padding: 10px;
+      z-index: 10;
+      position: absolute;
+      bottom: 20px; 
+      transform: translateY(-50%);
+    }
+
+    .swiper-button-next {
+      right: 10px;
+    }
+    
+    .swiper-button-prev {
+      left: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .swiper-button-next, .swiper-button-prev {
+        display: none;
+      }
+    }
+    
+
+    .image-container-icon-slider {
+       position: relative;
+       display: inline-block;
+    }
+    
+    .image-container-icon-slider img{
+      width: 100%;
+      height: auto;
+    }
+    
+    .eye-icon {
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      font-size: 20px; 
+      color: #ffffff; 
+    }
+    
+    @media (max-width: 420px) {
+    .eye-icon {
+      top: 5px;
+      left: 5px;
+      font-size: 14px; 
+    }
+      }
+  
+    
+    
+    
+        #whatsapp-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            cursor: pointer;
+        }
+    

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: https://hatf.sa/dashboard/login
+Sitemap: https://hatf.sa/sitemap.xml
