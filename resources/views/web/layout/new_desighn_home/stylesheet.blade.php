@@ -1,5 +1,7 @@
     <!-- link css style -->
     <link rel="stylesheet" href="{{asset('front/new_design/src/style/main.css')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('facicon.jpg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('front/new_design/src/bootstrap/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('front/new_design/src/bootstrap/bootstrap.min.css.map')}}">

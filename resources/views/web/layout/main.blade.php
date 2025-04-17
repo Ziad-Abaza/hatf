@@ -4,7 +4,7 @@
 <head>
         <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGW6ZSCB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="facebook-domain-verification" content="io9rpttns7ztrjz273fs9q4dwk1g4b" />
@@ -15,10 +15,8 @@
     <meta name="keywords" content="{{ config('app-meta.key_words') }}" />
     <!-- Favicon -->
     <!--<link rel="icon" href="{{ asset('facicon.jpg') }}" type="image/svg+xml" />-->
-    <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" style { height: 24px; width:
-        24px;border-radius: 24px;} type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" style { height: 24px; width:
-        24px;border-radius: 24px;} type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('facicon.jpg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
     <link rel="alternate" href="https://hatf.sa/" hreflang="ar-sa"  />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('front/assets/css/owl.carousel.min.css') }}" />
@@ -141,9 +139,9 @@
     <!-- End Google Tag Manager (noscript) -->
     <!-- start main page -->
     <!-- start header section -->
-      @include('web.layout.navbar') 
+      @include('web.layout.navbar')
     <!-- end header section -->
-    
+
         <!-- start hero -->
         <!-- end hero -->
 
@@ -151,7 +149,7 @@
     @yield('content')
     {{-- //End content --}}
     <!-- start main page -->
-       @include('web.layout.footer') 
+       @include('web.layout.footer')
     <!-- End main page -->
     @yield('js_footer')
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -204,7 +202,7 @@
     ],
     "opens": "00:00",
     "closes": "23:59"
-  } 
+  }
 }
     </script>
     <script>

@@ -22,10 +22,9 @@
     <!--  href="{{ asset('front/assets/imgs/hatf.svg') }}"-->
     <!--  type="image/svg+xml"-->
     <!--/>-->
-    <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" style { height: 24px; width:
-        24px;border-radius: 24px;} type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" style { height: 24px; width:
-        24px;border-radius: 24px;} type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('facicon.jpg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
 
     <link rel="alternate" href="https://hatf.sa/" hreflang="ar-sa"  />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet" />
@@ -112,7 +111,7 @@
 <body data-bs-theme="dark">
 
     <!-- start header section -->
-    @include('web.layout.navbar_home') 
+    @include('web.layout.navbar_home')
 
         <!-- start hero -->
         <!-- end hero -->
@@ -120,11 +119,11 @@
     <!-- end header section -->
 
     {{-- //start content --}}
-    @yield('content') 
+    @yield('content')
     {{-- //End content --}}
 
     <!-- start main page -->
-     @include('web.layout.footer') 
+     @include('web.layout.footer')
 
     <!-- End main page -->
 
@@ -307,7 +306,7 @@
     ],
     "opens": "00:00",
     "closes": "23:59"
-  } 
+  }
 }
     </script>
     <script type="text/javascript">

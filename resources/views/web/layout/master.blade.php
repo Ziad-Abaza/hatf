@@ -13,10 +13,9 @@
     <meta name="keywords" content="{{ config('app-meta.key_words') }}" />
     <meta name="author" content="Hatf" />
     <meta name="robots" content="index, follow" />
-    <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" style { height: 24px; width:
-        24px;border-radius: 24px;} type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" style { height: 24px; width:
-        24px;border-radius: 24px;} type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('facicon.jpg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
     <link rel="alternate" href="https://hatf.sa/" hreflang="ar-sa"  />
 
 
@@ -252,7 +251,7 @@
     ],
     "opens": "00:00",
     "closes": "23:59"
-  } 
+  }
 }
 </script>
     <script type="text/javascript">
