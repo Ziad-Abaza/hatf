@@ -12,8 +12,10 @@
 
     <meta name="description" content="" />
 
-          <!-- Favicon -->
-          <link rel="icon" href="{{asset('facicon.jpg')}}" type="image/svg+xml" />
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon.svg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('front/assets/imgs/favicon.ico') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
