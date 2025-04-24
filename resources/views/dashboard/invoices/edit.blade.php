@@ -1,149 +1,132 @@
 @extends('dashboard.layout.main')
 
-@section('main')
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="py-3 mb-4"><span class="text-muted fw-light">فاتورة/</span> تعديل</h4>
-
-        <div class="row justify-content-center mb-4">
-
-            <form style="height: 100%;" action="{{ route('dashboard.invoices.update', $invoice->id) }}" method="post"
-                class="bg-light p-3 align-content-around rounded" data-bs-theme="light">
+@section('content')
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row justify-content-center my-5">
+        <div class="col-lg-8 col-md-10">
+            <!-- نموذج تعديل الفاتورة -->
+            <form action="{{ route('dashboard.invoices.update', $invoice->id) }}" method="post"
+                class="card shadow border-0 custom-rtl">
                 @csrf
                 @method('PUT')
-                <div style="border-style: solid; border-color: #8e8e4e; margin-bottom: 30px; padding: 10px;">
-                    <div class="mb-12 col-12 col-md-12 text-end"
-                        style="display: flex; justify-content: space-between; margin-top: 20px;">
-                        <div>
-                            <p class="form-label text-dark fw-bold">رقم الفاتورة
-                                <input type="number" name="invoice_number" value="{{ $invoice->invoice_number }}"
-                                    style="display: none;" />
-                            </p>
+
+                <div class="card-body">
+                    <!-- رقم الفاتورة وتاريخ الطلب -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="invoice_number" class="form-label">رقم الفاتورة</label>
+                            <div class="input-group">
+                                <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-hashtag"></i></span>
+                                <input type="text" id="invoice_number" readonly class="custom-input form-control text-start"
+                                    value="{{ $invoice->invoice_number }}">
+                                <input type="hidden" id="invoice_number" name="invoice_number" class="custom-input form-control text-start"
+                                    value="{{ $invoice->invoice_number }}">
+                            </div>
                         </div>
-                        <div>
-                            <p id="invoiceNumber" class="form-label fw-bold" style="color: black">
-                                {{ $invoice->invoice_number }}
-                            </p>
+                        <div class="col-md-6">
+                            <label for="created_at" class="form-label">تاريخ الطلب</label>
+                            <div class="input-group">
+                                <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-calendar"></i></span>
+                                <input type="text" id="created_at" class="custom-input form-control text-start"
+                                    value="{{ \Carbon\Carbon::parse($invoice->created_at)->format('d/m/Y') }}" readonly>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="mb-12 col-12 col-md-12 text-end"
-                        style="display: flex; justify-content: space-between; margin-top: 20px;">
-                        <div>
-                            <p class="form-label text-dark fw-bold">تاريخ الطلب</p>
+                    <!-- معلومات العميل -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">الاسم الكامل</label>
+                            <div class="input-group">
+                                <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-user"></i></span>
+                                <input type="text" id="name" name="name"
+                                    class="custom-input form-control text-start @error('name') is-invalid @enderror"
+                                    placeholder="أدخل الاسم الكامل" value="{{ old('name', $invoice->name) }}" required>
+                                @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
-                        <div>
-                            <p id="orderDate" class="form-label fw-bold" style="color: black">
-                                {{ \Carbon\Carbon::parse($invoice->created_at)->format('d/m/Y') }}
-                            </p>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">البريد الإلكتروني</label>
+                            <div class="input-group">
+                                <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-envelope"></i></span>
+                                <input type="email" id="email" name="email"
+                                    class="custom-input form-control text-start @error('email') is-invalid @enderror"
+                                    placeholder="أدخل البريد الإلكتروني" value="{{ old('email', $invoice->email) }}"
+                                    required>
+                                @error('email')
+
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <!-- رقم الهاتف ووصف الخدمة -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">رقم الهاتف</label>
+                            <div class="input-group">
+                                <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-phone"></i></span>
+                                <input type="text" id="phone" name="phone"
+                                    class="custom-input form-control text-start @error('phone') is-invalid @enderror"
+                                    placeholder="أدخل رقم الهاتف" value="{{ old('phone', $invoice->phone) }}" required>
+                                @error('phone')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="service" class="form-label">وصف الخدمة</label>
+                            <div class="input-group">
+                                <textarea id="service" name="service"
+                                    class="custom-input form-control @error('service') is-invalid @enderror"
+                                    placeholder="أدخل وصف الخدمة"
+                                    required>{{ old('service', $invoice->service) }}</textarea>
+                                @error('service')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المصاريف والمبلغ الإجمالي -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="expenses" class="form-label">إجمالي المصاريف</label>
+                            <div class="input-group">
+                                <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-dollar-sign"></i></span>
+                                <input type="number" step="0.01" id="expenses" name="expenses"
+                                    class="custom-input form-control text-start @error('expenses') is-invalid @enderror"
+                                    placeholder="أدخل المصاريف الإضافية"
+                                    value="{{ old('expenses', $invoice->expenses) }}" required>
+                                @error('expenses')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="amount" class="form-label">المبلغ الإجمالي</label>
+                            <div class="input-group">
+                                <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-dollar-sign"></i></span>
+                                <input type="number" step="0.01" id="amount" name="amount"
+                                    class="custom-input form-control text-start @error('amount') is-invalid @enderror"
+                                    placeholder="أدخل المبلغ الإجمالي" value="{{ old('amount', $invoice->amount) }}"
+                                    required>
+                                @error('amount')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-
-                    <!-- Name -->
-                    <div class="mb-12 col-12 col-md-12 text-end">
-                        <label for="name" class="form-label text-dark fw-bold">اسمك الكريم*</label>
-                        <input type="text" placeholder="الاسم الثلاثي"
-                            class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                            value="{{ old('name', $invoice->name) }}" />
-                        @error('name')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Email -->
-                    <div class="mb-12 col-12 col-md-12 text-end">
-                        <label for="email" class="form-label text-dark fw-bold">البريد الالكتروني*</label>
-                        <input type="email" autocomplete="email"
-                            class="form-control font-m @error('email') is-invalid @enderror" id="email" name="email"
-                            value="{{ old('email', $invoice->email) }}" />
-                        @error('email')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Phone -->
-                    <div class="mb-12 col-12 col-md-12 text-end">
-                        <label for="phone" class="form-label text-dark fw-bold">هاتف التواصل</label>
-                        <input type="tel" class="form-control font-m @error('phone') is-invalid @enderror"
-                            id="phone" name="phone" value="{{ old('phone', $invoice->phone) }}" />
-                        @error('phone')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Service -->
-                    <div class="mb-12 col-12 col-md-12 text-end">
-                        <label for="service" class="form-label text-dark fw-bold">الخدمة*</label>
-                        <textarea type="text" class="form-control font-m @error('service') is-invalid @enderror" id="service"
-                            name="service">{{ old('service', $invoice->service) }}</textarea>
-                        @error('service')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Total expenses -->
-                    <div class="mb-12 col-12 col-md-12 text-end">
-                        <label for="expenses" class="form-label text-dark fw-bold">اجمالى المصاريف</label>
-                        <input type="expenses" class="form-control font-m @error('expenses') is-invalid @enderror"
-                            id="expenses" name="expenses"  value="{{ old('expenses', $invoice->expenses) }}" />
-                        @error('expenses')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Total Amount -->
-                    <div class="mb-12 col-12 col-md-12 text-end">
-                        <label for="amount" class="form-label text-dark fw-bold">اجمالى المبلغ</label>
-                        <input type="number" class="form-control font-m @error('amount') is-invalid @enderror"
-                            id="amount" name="amount" value="{{ old('amount', $invoice->amount) }}" />
-                        @error('amount')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="mb-12 col-12 col-md-12 text-end" style="display: flex; justify-content: center;">
-                        <button type="submit" class="col-6 btn btn-dark">
-                            حفظ التعديلات
-                        </button>
-                    </div>
-
+                <!-- زر الإرسال -->
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill">حفظ التعديلات</button>
                 </div>
             </form>
-
         </div>
-
     </div>
-@endsection
-
-@section('js')
-    <style>
-        label {
-            display: flex;
-        }
-    </style>
-
-    <script>
-        function previewImage(event) {
-            const imagePreview = document.getElementById('imagePreview');
-            imagePreview.src = URL.createObjectURL(event.target.files[0]);
-            imagePreview.style.display = 'block';
-        }
-
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('تم نسخ الرابط');
-            }).catch(err => {
-                console.error('فشل النسخ: ', err);
-            });
-        }
-    </script>
-        <script>
-        CKEDITOR.replace('service', {
-            contentsLangDirection: 'rtl',  // Set text direction to right-to-left
-            language: 'ar'  // Optionally, set the language to Arabic
-        });
-    </script>
+</div>
 @endsection

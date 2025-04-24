@@ -1,148 +1,62 @@
-<!doctype html>
-
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr"
-    data-theme="theme-default" data-assets-path="{{ asset('backend/assets') }}/" data-template="vertical-menu-template">
+<!DOCTYPE html>
+<html lang="ar">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-    <title>Dashboard - Half | هتف - لوحة تحكم</title>
-
-    <meta name="description" content="" />
-
-    <!-- Favicon -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" type="image/svg+xml" />
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon.svg') }}">
     <link rel="icon" type="image/png" href="{{ asset('front/assets/imgs/favicon.ico') }}">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
-        rel="stylesheet" />
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/fonts/fontawesome.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/fonts/tabler-icons.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/fonts/flag-icons.css') }}" />
-
-
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/css/rtl/core.css') }}"
-        class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/css/rtl/theme-default.css') }}"
-        class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/demo.css') }}" />
-
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/node-waves/node-waves.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/typeahead-js/typeahead.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/swiper/swiper.css') }}" />
+    <title>@yield('title', 'Dashboard')</title>
+    <!-- Fonts and icons -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
+    <!-- Nucleo Icons -->
+    <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
     <link rel="stylesheet"
-        href="{{ asset('backend/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}" />
-    <link rel="stylesheet"
-        href="{{ asset('backend/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}" />
-    <link rel="stylesheet"
-        href="{{ asset('backend/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}" />
-
-    <!-- Page CSS -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/css/pages/cards-advance.css') }}" />
-
-    @yield('css')
-
-    <!-- Helpers -->
-    <script src="{{ asset('backend/assets/vendor/js/helpers.js') }}"></script>
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-    <script src="{{ asset('backend/assets/vendor/js/template-customizer.js') }}"></script>
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{ asset('backend/assets/js/config.js') }}"></script>
-
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
-
-    @yield('jsHeader')
-
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="{{ asset('assets/css/material-dashboard.css?v=3.2.0') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link id="pagestyle" href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet" />
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
 </head>
 
-<body>
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
-        <div class="layout-container">
-            <!-- Menu -->
-
-            @include('dashboard.layout.aside')
-
-            <!-- / Menu -->
-
-            <!-- Layout container -->
-            <div class="layout-page">
-
-                <!-- Navbar -->
-
-                @include('dashboard.layout.navbar')
-
-                <!-- / Navbar -->
-
-                <!-- Content wrapper -->
-                <div class="content-wrapper">
-                    <!-- Content -->
-
-                    @yield('main')
-
-                    <!-- / Content -->
-
-                    <!-- Footer -->
-
-                    @include('dashboard.layout.footer')
-
-                    <!-- / Footer -->
-
-                    <div class="content-backdrop fade"></div>
-                </div>
-                <!-- Content wrapper -->
-            </div>
-            <!-- / Layout page -->
+<body class="g-sidenav-show bg-gray-100 rtl">
+    @include('dashboard.layout.aside')
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+        @include('dashboard.layout.navbar')
+        <div aria-live="polite" aria-atomic="true" class="position-relative">
+            <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
         </div>
+        @yield('content')
 
-        <!-- Overlay -->
-        <div class="layout-overlay layout-menu-toggle"></div>
-
-        <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-        <div class="drag-target"></div>
-    </div>
-    <!-- / Layout wrapper -->
-
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    @yield('js')
-
-    <script src="{{ asset('backend/assets/vendor/libs/jquery/jquery.js') }}"></script>
-    <script src="{{ asset('backend/assets/vendor/libs/popper/popper.js') }}"></script>
-    <script src="{{ asset('backend/assets/vendor/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('backend/assets/vendor/libs/node-waves/node-waves.js') }}"></script>
-    <script src="{{ asset('backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-    <script src="{{ asset('backend/assets/vendor/libs/hammer/hammer.js') }}"></script>
-    <script src="{{ asset('backend/assets/vendor/libs/i18n/i18n.js') }}"></script>
-    <script src="{{ asset('backend/assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
-    <script src="{{ asset('backend/assets/vendor/js/menu.js') }}"></script>
-
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-    <script src="{{ asset('backend/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
-    <script src="{{ asset('backend/assets/vendor/libs/swiper/swiper.js') }}"></script>
-    <script src="{{ asset('backend/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
-
-    <!-- Main JS -->
-    <script src="{{ asset('backend/assets/js/main.js') }}"></script>
-
-    <!-- Page JS -->
-    <script src="{{ asset('backend/assets/js/dashboards-analytics.js') }}"></script>
+        <div class="position-fixed bottom-0 start-0 p-3 custom-rtl" style="z-index: 9999">
+            <div id="copyToast" class="toast align-items-center text-white bg-success border-0" role="alert"
+                aria-live="assertive" aria-atomic="true">
+                <div class="d-flex justify-content-between">
+                    <div id="toastMessage" class="toast-body">
+                    </div>
+                    <button type="button" class="btn-close btn-close-white my-3 m-0" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Core JS Files -->
+    <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
+    <script src="{{ asset('assets/js/material-dashboard.min.js?v=3.2.0') }}"></script>
+    <script src="{{ asset('assets/js/besic-dashboard.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
 </html>

@@ -18,7 +18,9 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('front/assets/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/assets/css/style.css') }}" />
-
+    <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon.svg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('front/assets/imgs/favicon.ico') }}">
 
     <!-- Google Tag Manager -->
     <script>

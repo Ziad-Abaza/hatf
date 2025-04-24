@@ -1,68 +1,98 @@
 @extends('dashboard.layout.main')
 
-@section('main')
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="py-3 mb-4"><span class="text-muted fw-light">معرض الأعمال/</span> تعديل</h4>
+@section('content')
+<div class="container-xxl flex-grow-1 container-p-y my-5" dir="rtl">
 
-        <!-- Basic Layout -->
-        <div class="row">
-            <div class="col-xl">
-                <div class="card mb-12">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">تعديل عمل</h5>
+    <!-- Form Card -->
+    <div class="card shadow border-0 col-lg-8 mx-auto">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 text-start">تعديل العمل</h5>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('dashboard.business.exhibition.update', $businessExhibition->id) }}" method="POST"
+                enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+
+                <div class="row g-3">
+
+                    <!-- Work Name -->
+                    <div class="col-md-6">
+                        <label for="basic-default-name" class="form-label">إسم العمل</label>
+                        <div class="input-group">
+                            <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-tag"></i></span>
+                            <input type="text" name="name" id="basic-default-name"
+                                class="custom-input form-control text-start @error('name') is-invalid @enderror"
+                                value="{{ old('name', $businessExhibition->name) }}"
+                                placeholder="اكتب اسم واضح للعمل" />
+                            @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <form action="{{ route('dashboard.business.exhibition.update', $businessExhibition->id) }}"
-                            method="POST" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
 
-                            <div class="row">
+                    <!-- Work Image -->
+                    <div class="col-md-6">
+                        <label for="formFile" class="form-label">إضافة صورة العمل</label>
+                        <div class="input-group gap-2">
+                            <input type="file" name="image" id="formFile"
+                                class="custom-input form-control text-start @error('image') is-invalid @enderror" />
+                            @error('image')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
 
-                                <div class="col-6 mb-3">
-                                    <label class="form-label" for="basic-default-name">إسم العمل</label>
-                                    <input type="text" name="name"
-                                        class="form-control @error('name') is-invalid @enderror"
-                                        value="{{ old('name', $businessExhibition->name) }}" id="basic-default-name"
-                                        placeholder="John Doe" />
-                                    @error('name')
-                                        <div
-                                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-6 mb-3">
-                                    <label for="formFile" class="form-label">إضافة صوره العمل</label>
-                                    <input type="file" name="image"
-                                        class="form-control @error('image') is-invalid @enderror" id="formFile" />
-                                    @error('image')
-                                        <div
-                                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-6 mb-3">
-                                    <label for="desc" class="form-label">الوصف</label>
-                                    <textarea name="desc" class="form-control @error('desc') is-invalid @enderror" id="desc" rows="3">{{ old('desc', $businessExhibition->desc) }}</textarea>
-                                    @error('desc')
-                                        <div
-                                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
+                            <!-- Display Current Image -->
+                            @if ($businessExhibition->image)
+                            <div class="m-0">
+                                <img src="{{ asset('storage/images/' . $businessExhibition->image) }}"
+                                    alt="Current Image" class="rounded-circle avatar-md cursor-pointer"
+                                    data-bs-toggle="modal" data-bs-target="#imageModal"
+                                    data-image="{{ asset('storage/images/' . $businessExhibition->image) }}" />
                             </div>
-
-                            <button type="submit" class="btn btn-primary">تحديث</button>
-                        </form>
+                            @endif
+                        </div>
                     </div>
+
+                    <!-- Work Description -->
+                    <div class="col-md-12">
+                        <label for="desc" class="form-label">الوصف</label>
+                        <textarea name="desc" id="desc" rows="3"
+                            class="custom-input form-control text-end @error('desc') is-invalid @enderror"
+                            placeholder="اكتب وصفًا واضحًا للعمل">{{ old('desc', $businessExhibition->desc) }}</textarea>
+                        @error('desc')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="row mt-4">
+                    <div class="col-12 d-flex justify-content-start">
+                        <button type="submit" class="btn btn-primary rounded-pill px-4">
+                            <span class="material-symbols-rounded fs-6 me-1">save</span> تحديث العمل
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="modal fade custom-rtl" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header justify-content-between">
+                    <h5 class="modal-title" id="imageModalLabel">عرض الصورة</h5>
+                    <button type="button" class="btn btn-close m-0" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="material-symbols-rounded fs-4 text-dark ms-2">close</i>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="" alt="Large Image" class="img-fluid" id="modalImage" />
                 </div>
             </div>
         </div>
-
     </div>
+</div>
 @endsection

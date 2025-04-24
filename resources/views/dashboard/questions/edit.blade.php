@@ -1,73 +1,83 @@
 @extends('dashboard.layout.main')
 
-@section('main')
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="py-2"><span class="text-muted fw-light">لوحة التحكم /</span> الاسئلة / تعديل</h4>
-        <div class="row">
-            <div class="col-xl">
-                <div class="card mb-12">
-                    <div class="card-header d-flex justify-content-between align-items-center"></div>
+@section('content')
+<div class="container-xxl flex-grow-1 container-p-y">
+    <!-- Basic Layout -->
+    <div class="row custom-rtl">
+        <div class="col-xl">
+            <div class="card my-7 mx-auto" style="max-width: 800px">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">تعديل سؤال</h5>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('dashboard.questions.update', $question->id) }}" method="POST"
+                        enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
 
-                    <div class="card-body">
+                        <div class="row">
 
-                        <!-- Display validation errors -->
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+                            <!-- السؤال -->
+                            <div class="col-md-12 col-12 mb-3">
+                                <label class="form-label" for="title">السؤال</label>
+                                <div class="input-group">
+                                    <span class="input-group-text h-100 fs-6 px-3"><i
+                                            class="fas fa-question"></i></span>
+                                    <input type="text" name="title" id="title"
+                                        class="custom-input form-control text-start @error('title') is-invalid @enderror"
+                                        value="{{ old('title', $question->title) }}" placeholder="أدخل السؤال"
+                                        required />
+                                </div>
+                                @error('title')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
-                        @endif
 
-                        <div class="container">
-                            <h2 class="mb-4">تعديل الاسئلة</h2>
-                            <form action="{{ route('dashboard.questions.update', $question->id) }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
-                                @method('PUT')
+                            <!-- الإجابة -->
+                            <div class="col-md-12 col-12 mb-3">
+                                <label for="description" class="form-label">الإجابة</label>
+                                <textarea name="description" id="description"
+                                    class="custom-input form-control @error('description') is-invalid @enderror"
+                                    rows="3" placeholder="أضف الإجابة"
+                                    required>{{ old('description', $question->description) }}</textarea>
+                                @error('description')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">السؤال</label>
-                                    <input type="text" name="title" class="form-control"
-                                        value="{{ $question->title }}" required>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">الاجابة</label>
-                                    <textarea name="description" class="form-control" required>{{ $question->description }}</textarea>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">الخدمة</label>
-                                    <select name="service_id" class="form-control" required>
+                            <!-- اختيار الخدمة -->
+                            <div class="col-md-12 col-12 mb-3">
+                                <label class="form-label" for="service_id">الخدمة</label>
+                                <div class="input-group">
+                                    <span class="input-group-text h-100 fs-6 px-3"><i
+                                            class="fas fa-list-alt"></i></span>
+                                    <select name="service_id" id="service_id"
+                                        class="custom-input form-select text-start @error('service_id') is-invalid @enderror"
+                                        required>
+                                        <option value="" disabled>اختر خدمة</option>
                                         @foreach ($services as $service)
-                                            <option value="{{ $service->id }}" 
-                                                @if ($question->service_id == $service->id) selected @endif>
-                                                {{ $service->name }}
-                                            </option>
+                                        <option value="{{ $service->id }}" @if ($question->service_id == $service->id)
+                                            selected @endif>
+                                            {{ $service->name }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
+                                @error('service_id')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-
-                                <button type="submit" class="btn btn-primary">تعديل</button>
-                            </form>
                         </div>
 
-                    </div>
+                        <!-- زر الحفظ -->
+                        <button type="submit" class="btn btn-primary mt-4">
+                            <span class="material-symbols-rounded fs-6 me-1">save</span> حفظ التعديلات
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-
-@section('js')
-    <script>
-        CKEDITOR.replace('description', { // Use 'description' if it's the correct field name
-            contentsLangDirection: 'rtl', // Set text direction to right-to-left
-            language: 'ar' // Optionally, set the language to Arabic
-        });
-    </script>
+</div>
 @endsection

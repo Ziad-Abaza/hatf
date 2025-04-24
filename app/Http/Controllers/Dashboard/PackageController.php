@@ -15,8 +15,8 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $package=Package::all();
-        return view('dashboard.packages.index',compact("package"));
+        $packages = Package::all();
+        return view('dashboard.packages.index', compact("packages"));
     }
 
     /**
@@ -24,7 +24,7 @@ class PackageController extends Controller
      */
     public function create()
     {
-        
+
         return view('dashboard.packages.create');
     }
 
@@ -40,9 +40,8 @@ class PackageController extends Controller
             $imageName = '';
         }
         Package::create(['image' => $imageName ?? ''] + $request->validated());
-        
-        return redirect()->route('dashboard.packages.index')->with('success',"تم اضاقة بنجاح");
-        
+
+        return redirect()->route('dashboard.packages.index')->with('success', "تم اضاقة بنجاح");
     }
 
 
@@ -52,8 +51,7 @@ class PackageController extends Controller
      */
     public function edit(Package $package)
     {
-        return view('dashboard.packages.edit',['package'=>$package]);
-
+        return view('dashboard.packages.edit', ['package' => $package]);
     }
 
     /**
@@ -65,16 +63,16 @@ class PackageController extends Controller
             $currentImage = $package->image;
             $imageName = uniqid() . '.' . $request->image->extension();
             $request->image->storeAs('public/images', $imageName);
-                if ($currentImage && Storage::exists('public/images/' . $currentImage)) {
+            if ($currentImage && Storage::exists('public/images/' . $currentImage)) {
                 Storage::delete('public/images/' . $currentImage);
             }
         } else {
             $imageName = $package->image;
         }
-    
+
         $package->update(['image' => $imageName] + $request->validated());
-        
-        return redirect()->route('dashboard.packages.index')->with('success',"تم تعديل بنجاح");
+
+        return redirect()->route('dashboard.packages.index')->with('success', "تم تعديل بنجاح");
     }
 
     /**
@@ -83,7 +81,6 @@ class PackageController extends Controller
     public function destroy(Package $package)
     {
         $package->delete();
-        return redirect()->route('dashboard.packages.index')->with('success',"تم حذف بنجاح");
-        
+        return redirect()->route('dashboard.packages.index')->with('success', "تم حذف بنجاح");
     }
 }

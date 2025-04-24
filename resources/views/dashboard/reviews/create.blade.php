@@ -1,122 +1,129 @@
 @extends('dashboard.layout.main')
 
-@section('main')
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="py-2"><span class="text-muted fw-light">لوحة التحكم /</span> مراجعة/</span> انشاء</h4>
-        <!-- Basic Layout -->
-        <div class="row">
-            <div class="col-xl">
-                <div class="card mb-12">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                    </div>
+@section('content')
+<div class="container-xxl flex-grow-1 container-p-y">
+    <!-- Basic Layout -->
+    <div class="row custom-rtl">
+        <div class="col-xl">
+            <div class="card my-7 mx-auto" style="max-width: 800px">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">إضافة مراجعة جديدة</h5>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('dashboard.reviews.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
 
-                    <div class="card-body">
+                        <div class="row">
 
-                        <!-- Display validation errors -->
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+                            <!-- Name -->
+                            <div class="col-md-6 col-12 mb-3">
+                                <label class="form-label" for="name">الاسم</label>
+                                <div class="input-group">
+                                    <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-user"></i></span>
+                                    <input type="text" name="name" id="name"
+                                        class="custom-input form-control text-start @error('name') is-invalid @enderror"
+                                        value="{{ old('name') }}" placeholder="أدخل اسم الشخص" />
+                                </div>
+                                @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
-                        @endif
 
-                        <div class="container">
-                            <h2 class="mb-4">انشاء مراجعة</h2>
-                            <form action="{{ route('dashboard.reviews.store') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                            
-                                <!-- Name -->
-                                <div class="mb-3">
-                                    <label class="form-label">الاسم</label>
-                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" required value="{{ old('name') }}">
-                                    @error('name')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                            <!-- Job Title -->
+                            <div class="col-md-6 col-12 mb-3">
+                                <label class="form-label" for="job_title">المسمى الوظيفي</label>
+                                <div class="input-group">
+                                    <span class="input-group-text h-100 fs-6 px-3"><i
+                                            class="fas fa-briefcase"></i></span>
+                                    <input type="text" name="job_title" id="job_title"
+                                        class="custom-input form-control text-start @error('job_title') is-invalid @enderror"
+                                        value="{{ old('job_title') }}" placeholder="أدخل المسمى الوظيفي" />
                                 </div>
-                            
-                                <!-- Job Title -->
-                                <div class="mb-3">
-                                    <label class="form-label">المسمى الوظيفي</label>
-                                    <input type="text" name="job_title" class="form-control @error('job_title') is-invalid @enderror" value="{{ old('job_title') }}">
-                                    @error('job_title')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            
-                                <!-- Content -->
-                                <div class="mb-3">
-                                    <label class="form-label">المحتوى</label>
-                                    <textarea name="content" class="form-control @error('content') is-invalid @enderror" required>{{ old('content') }}</textarea>
-                                    @error('content')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            
-                                <!-- Service -->
-                                <div class="mb-3">
-                                    <label class="form-label">الخدمة</label>
-                                    <select name="service_id" class="form-control @error('service_id') is-invalid @enderror">
+                                @error('job_title')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <!-- Content -->
+                            <div class="col-md-12 col-12 mb-3">
+                                <label for="content" class="form-label">المحتوى</label>
+                                <textarea name="content" id="content"
+                                    class="custom-input form-control @error('content') is-invalid @enderror" rows="3"
+                                    placeholder="أضف محتوى المراجعة">{{ old('content') }}</textarea>
+                                @error('content')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <!-- Service -->
+                            <div class="col-md-6 col-12 mb-3">
+                                <label class="form-label" for="service_id">الخدمة</label>
+                                <div class="input-group">
+                                    <span class="input-group-text h-100 fs-6 px-3"><i
+                                            class="fas fa-list-alt"></i></span>
+                                    <select name="service_id" id="service_id"
+                                        class="custom-input form-select text-start @error('service_id') is-invalid @enderror">
+                                        <option value="" selected disabled>اختر خدمة</option>
                                         @foreach ($services as $service)
-                                        <option value="">الكل</option>
-                                            <option value="{{ $service->id }}" {{ old('service_id') == $service->id ? 'selected' : '' }}>
-                                                {{ $service->name }}
-                                            </option>
+                                        <option value="{{ $service->id }}" {{ old('service_id')==$service->id ?
+                                            'selected' : '' }}>
+                                            {{ $service->name }}
+                                        </option>
                                         @endforeach
                                     </select>
-                                    @error('service_id')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
                                 </div>
-                            
-                                <!-- Rating -->
-                                <div class="mb-3">
-                                    <label class="form-label">التقييم</label>
-                                    <select name="rating" class="form-control @error('rating') is-invalid @enderror" required>
-                                        <option value="">اختر التقييم</option>
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            <option value="{{ $i }}" {{ old('rating') == $i ? 'selected' : '' }}>
-                                                ⭐ {{ $i }} / 5
+                                @error('service_id')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <!-- Rating -->
+                            <div class="col-md-6 col-12 mb-3">
+                                <label class="form-label" for="rating">التقييم</label>
+                                <div class="input-group">
+                                    <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-star"></i></span>
+                                    <select name="rating" id="rating"
+                                        class="custom-input form-select text-start @error('rating') is-invalid @enderror"
+                                        required>
+                                        <option value="" selected disabled>اختر التقييم</option>
+                                        @for ($i = 1; $i <= 5; $i++) <option value="{{ $i }}" {{ old('rating')==$i
+                                            ? 'selected' : '' }}>
+                                            ⭐ {{ $i }} / 5
                                             </option>
-                                        @endfor
+                                            @endfor
                                     </select>
-                                    @error('rating')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
                                 </div>
-                            
-                                <!-- Image Upload with Preview -->
-                                <div class="mb-3">
-                                    <label class="form-label">الصورة</label>
-                                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*" onchange="previewImage(event)">
-                                    @error('image')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <div class="mt-2">
-                                        <img id="imagePreview" src="" alt="صورة المعاينة" class="img-thumbnail" style="display: none; max-width: 150px;">
-                                    </div>
+                                @error('rating')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <!-- Image Upload with Preview -->
+                            <div class="col-md-12 col-12 mb-3">
+                                <label for="image" class="form-label">الصورة</label>
+                                <input type="file" name="image" id="image"
+                                    class="custom-input form-control @error('image') is-invalid @enderror"
+                                    accept="image/*" onchange="previewImage(event)" />
+                                @error('image')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <div class="mt-2">
+                                    <img id="imagePreview" src="" alt="صورة المعاينة"
+                                        class="rounded-circle avatar-lg cursor-pointer"
+                                        style="display: none; max-width: 100px;" />
                                 </div>
-                            
-                                <button type="submit" class="btn btn-primary">إضافة التقييم</button>
-                            </form>
-                            
+                            </div>
+
                         </div>
-                    </div>
+
+                        <!-- زر الإضافة -->
+                        <button type="submit" class="btn btn-primary mt-4">
+                            <span class="material-symbols-rounded fs-6 me-1">add</span> إضافة
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-
-
-
-@section('js')
-    <script>
-        CKEDITOR.replace('descraption_ar', {
-            contentsLangDirection: 'rtl', // Set text direction to right-to-left
-            language: 'ar' // Optionally, set the language to Arabic
-        });
-    </script>
+</div>
 @endsection

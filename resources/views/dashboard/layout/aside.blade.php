@@ -1,161 +1,143 @@
-<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme"
-    style="max-height: 100vh; overflow-y: auto; overflow-x: hidden;">
-    <div class="app-brand demo">
-        <a href="{{ route('dashboard.dashboard') }}" class="app-brand-link">
-            <span class="app-brand-logo demo">
-                <img src="{{ asset('backend/assets/img/logo/logo.png') }}" alt="auth-login-cover" width="20"
-                    height="24" />
-            </span>
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-radius-lg fixed-end ms-2 bg-white my-2 text-end"
+    id="sidenav-main" style="direction:rtl;">
+    <div class="sidenav-header">
+        <i class="fas fa-times p-3 cursor-pointer text-dark opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+            aria-hidden="true" id="iconSidenav"></i>
+        <a class="navbar-brand px-4 py-3 m-0 d-flex align-items-center g-5" href="{{ route('home') }}" target="_blank">
+            <div class="app-brand-logo demo">
+                <img src="{{ asset('backend/assets/img/logo/logo.png') }}" class="navbar-brand-img " width="26" height="26"
+                    alt="main_logo">
+            </div>
             <span class="app-brand-text demo menu-text fw-bold">لوحة هتف</span>
         </a>
-
-        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-            <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
-            <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
-        </a>
     </div>
+    <hr class="horizontal dark mt-0 mb-2">
+    <div class="collapse navbar-collapse w-auto"  id="sidenav-collapse-main" style="height:85%;">
+        <ul class="navbar-nav">
 
-    <div class="menu-inner-shadow"></div>
-
-    <ul class="menu-inner py-1" style="padding-bottom: 20px;">
-        <!-- Dashboards -->
-
-        <!-- Apps & Pages -->
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text" data-i18n="الصفحات"> الصفحات</span>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.header.index')) active @endif">
-            <a href="{{ route('dashboard.header.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-home"></i>
-                <div data-i18n="الرئيسية"> الرئيسية</div>
-            </a>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.invoices.index')) active @endif" >
-            <a href="{{ route('dashboard.invoices.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-file-invoice"></i>
-                <div data-i18n="الفواتير">الفواتير</div>
-            </a>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.admin.index')) active @endif">
-            <a href="{{ route('dashboard.admin.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-id"></i>
-                <div data-i18n="المشرفون"> المشرفون</div>
-            </a>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.service.index')) active @endif">
-            <a href="{{ route('dashboard.service.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-truck"></i>
-                <div data-i18n="الخدمات"> الخدمات</div>
-            </a>
-        </li>
-
-
-        <li class="menu-item @if (request()->routeIs('dashboard.footer.index')) active @endif">
-            <a href="{{ route('dashboard.footer.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-box-align-bottom"></i>
-                <div data-i18n="الفوتر">الفوتر</div>
-            </a>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.section.index')) active @endif">
-            <a href="{{ route('dashboard.section.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-photo"></i>
-                <div data-i18n="خلفيات الموقع"> خلفيات الموقع</div>
-            </a>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.partner.index')) active @endif">
-            <a href="{{ route('dashboard.partner.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-heart-handshake"></i>
-                <div data-i18n="شركاء النجاح"> شركاء النجاح</div>
-            </a>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.business.exhibition.index')) active @endif">
-            <a href="{{ route('dashboard.business.exhibition.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-brand-bumble"></i>
-                <div data-i18n="معرض الأعمال"> معرض الأعمال</div>
-            </a>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.blogs.index')) active @endif">
-            <a href="{{ route('dashboard.blogs.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons fa-solid fa-book"></i>
-                <div data-i18n="مدوّنتنا">مدوّنتنا </div>
-            </a>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.packages.index')) active @endif">
-            <a href="{{ route('dashboard.packages.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons fa-solid fa-box"></i>
-                <div data-i18n="باقتنا">باقتنا </div>
-            </a>
-        </li>
-
-
-        <li class="menu-item @if (request()->routeIs('dashboard.marketeer.index')) active @endif">
-            <a href="{{ route('dashboard.marketeer.index') }}" class="menu-link">
-                {{-- <i class="menu-icon tf-icons ti ti-brand-bumble"></i> --}}
-                <i class="menu-icon tf-icons fa-solid fa-ranking-star"></i>
-                <div data-i18n="المسوقون"> المسوقون </div>
-            </a>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.customer.index')) active @endif">
-            <a href="{{ route('dashboard.customer.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons fa-solid fa-users"></i>
-                <div data-i18n="العملاء"> العملاء </div>
-            </a>
-        </li>
-
-
-        <li class="menu-item @if (request()->routeIs('dashboard.plan.index')) active @endif">
-            <a href="{{ route('dashboard.plan.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons fa-solid fa-eye"></i>
-                <div data-i18n="خطة"> خطة </div>
-            </a>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.gallery.index')) active @endif">
-            <a href="{{ route('dashboard.gallery.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons fa-solid fa-camera"></i>
-                <div data-i18n="الاستوديو"> الاستوديو </div>
-            </a>
-        </li>
-
-        <li class="menu-item @if (request()->routeIs('dashboard.settings.index')) active @endif">
-            <a href="{{ route('dashboard.settings.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-box-align-bottom"></i>
-                <div data-i18n="الاعدادات">الاعدادات</div>
-            </a>
-        </li>
-
-        <!-- languages -->
-        <li class="menu-item" style="margin-bottom: 55px;">
-            <a href="javascript:void(0);" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-world"></i>
-                <div data-i18n="اللغات">اللغات</div>
-            </a>
-            @foreach ($translationFiles as $translationFile)
-            <li class="menu-item @if (request()->routeIs('dashboard.languages.index', ['slug' => $translationFile])) active @endif">
-                <a href="{{ route('dashboard.languages.index', ['slug' => $translationFile]) }}" class="menu-link">
-                    <div data-i18n="{{ $translationFile }}">
-                        {{ $translationFile }}
-                    </div>
+            <!-- الصفحة الرئيسية -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/headers*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.header.index') }}">
+                    <i class="material-symbols-rounded opacity-5">home</i>
+                    <span class="nav-link-text ms-1">الرئيسية</span>
                 </a>
             </li>
-        @endforeach
-        </li>
 
-        <!-- languages -->
+            <!-- الفواتير -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/invoices*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.invoices.index') }}">
+                    <i class="material-symbols-rounded opacity-5">receipt</i>
+                    <span class="nav-link-text ms-1">الفواتير</span>
+                </a>
+            </li>
 
+            <!-- المشرفون -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/admins*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.admin.index') }}">
+                    <i class="material-symbols-rounded opacity-5">admin_panel_settings</i>
+                    <span class="nav-link-text ms-1">المشرفون</span>
+                </a>
+            </li>
 
+            <!-- الخدمات -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/services*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.service.index') }}">
+                    <i class="material-symbols-rounded opacity-5">design_services</i>
+                    <span class="nav-link-text ms-1">الخدمات</span>
+                </a>
+            </li>
 
+            <!-- خلفيات الموقع -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/footers*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}"
+                    href="{{ route('dashboard.footer.index') }}">
+                    <i class="material-symbols-rounded opacity-5">box</i>
+                    <span class="nav-link-text ms-1">الفوتر</span>
+                </a>
+            </li>
 
+            <!-- خلفيات الموقع -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/sections*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}"
+                    href="{{ route('dashboard.section.index') }}">
+                    <i class="material-symbols-rounded opacity-5">wallpaper</i>
+                    <span class="nav-link-text ms-1">خلفيات الموقع</span>
+                </a>
+            </li>
 
-    </ul>
+            <!-- شركاء النجاح -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/partners*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.partner.index') }}">
+                    <i class="material-symbols-rounded opacity-5">people</i>
+                    <span class="nav-link-text ms-1">شركاء النجاح</span>
+                </a>
+            </li>
+
+            <!-- معرض الأعمال -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/business-exhibitions*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.business.exhibition.index') }}">
+                    <i class="material-symbols-rounded opacity-5">folder_open</i>
+                    <span class="nav-link-text ms-1">معرض الأعمال</span>
+                </a>
+            </li>
+
+            <!-- مدوّنتنا -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/blogs*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.blogs.index') }}">
+                    <i class="material-symbols-rounded opacity-5">edit</i>
+                    <span class="nav-link-text ms-1">مدوّنتنا</span>
+                </a>
+            </li>
+
+            <!-- باقتنا -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/packages*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.packages.index') }}">
+                    <i class="material-symbols-rounded opacity-5">local_offer</i>
+                    <span class="nav-link-text ms-1">باقتنا</span>
+                </a>
+            </li>
+
+            <!-- المسوقون -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/marketeers*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.marketeer.index') }}">
+                    <i class="material-symbols-rounded opacity-5">person_add</i>
+                    <span class="nav-link-text ms-1">المسوقون</span>
+                </a>
+            </li>
+
+            <!-- العملاء -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/customers*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.customer.index') }}">
+                    <i class="material-symbols-rounded opacity-5">group</i>
+                    <span class="nav-link-text ms-1">العملاء</span>
+                </a>
+            </li>
+
+            <!-- خطة -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/plans*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.plan.index') }}">
+                    <i class="material-symbols-rounded opacity-5">calendar_today</i>
+                    <span class="nav-link-text ms-1">خطة</span>
+                </a>
+            </li>
+
+            <!-- الاستوديو -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/gallery*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.gallery.index') }}">
+                    <i class="material-symbols-rounded opacity-5">photo_camera</i>
+                    <span class="nav-link-text ms-1">الاستوديو</span>
+                </a>
+            </li>
+
+            <!-- الإعدادات -->
+            <li class="nav-item">
+                <a class="nav-link gap-1 {{ Request::is('dashboard/settings/meta*') ? 'active bg-gradient-dark text-white' : 'text-dark' }}" href="{{ route('dashboard.settings.index') }}">
+                    <i class="material-symbols-rounded opacity-5">settings</i>
+                    <span class="nav-link-text ms-1">الإعدادات</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
 </aside>
+

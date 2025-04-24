@@ -1,66 +1,44 @@
+<!-- resources/views/dashboard/header/index.blade.php -->
+
 @extends('dashboard.layout.main')
 
-@section('main')
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="py-2"><span class="text-muted fw-light">لوحة التحكم /</span> الرئيسية</h4>
-        {{--
-        <div class="col-lg-4 pb-4">
-            <div class="demo-inline-spacing">
-                <a href="{{ route('dashboard.header.create') }}" class="btn btn-primary" style="color: #fff">
-                    Create FAQ
-                </a>
-            </div>
-        </div> --}}
-
-        <!-- Hoverable Table rows -->
-        <div class="card">
-            {{-- <h5 class="card-header">Hoverable rows</h5> --}}
-            <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
-
-                    <thead>
-                        <tr>
-                            <th>ترتيب</th>
-                            <th>العنوان</th>
-                            <th>الوصف</th>
-                            <th>العمليات</th>
-                        </tr>
-                    </thead>
-
-                    <tbody class="table-border-bottom-0">
-                        {{-- @foreach ($header as $head) --}}
-                        <tr>
-                            <td>
-                                <span class="fw-medium">{{ $header->id }}</span>
-                            </td>
-                            <td>
-                                <span class="fw-medium">{{ $header->title }}</span>
-                            </td>
-                            <td>
-                                <span class="fw-medium">{{ Str::limit($header->desc, 15, '...') }}</span>
-                            </td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="ti ti-dots-vertical"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('dashboard.header.edit', $header->id) }}"><i
-                                                class="ti ti-pencil me-1"></i> تعديل</a>
-                                        {{-- <a class="dropdown-item" href="{{ route('dashboard.faq.delete', $faq->id) }}"><i
-                                                    class="ti ti-trash me-1"></i>
-                                                Delete</a> --}}
-                                    </div>
+@section('content')
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header pb-0 p-3">
+                    <h6 class="mb-0">Header Information</h6>
+                </div>
+                <div class="card-body p-3">
+                    @if ($header)
+                    <div class="row">
+                        <div class="col-md-12 mb-4 searchable-item">
+                            <div
+                                class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                <img src="{{ asset('storage/images/' . $header->image) }}" alt="{{ $header->title }}"
+                                    class="w-10 me-3 mb-0" style="max-width: 100px;">
+                                <div>
+                                    <h6 class="mb-0 text-sm">{{ $header->title }}</h6>
+                                    <p class="text-xs text-secondary">{{ $header->desc }}</p>
                                 </div>
-                            </td>
-                        </tr>
-                        {{-- @endforeach --}}
-                    </tbody>
-                </table>
+                                <div class="ms-auto">
+                                    <a href="{{ route('dashboard.header.edit', $header->id) }}"
+                                        class="btn btn-link text-dark px-3 mb-0">
+                                        <i class="material-symbols-rounded text-sm me-2">edit</i>Edit
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @else
+                    <div class="alert alert-info text-center">
+                        No header information available.
+                    </div>
+                    @endif
+                </div>
             </div>
         </div>
-        <!--/ Hoverable Table rows -->
-
     </div>
+</div>
 @endsection

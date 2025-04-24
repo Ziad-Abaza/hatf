@@ -1,104 +1,92 @@
 @extends('dashboard.layout.main')
 
-@section('main')
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="py-2"><span class="text-muted fw-light">لوحة التحكم /</span> مدونات/</span> انشاء</h4>
-        <!-- Basic Layout -->
-        <div class="row">
-            <div class="col-xl">
-                <div class="card mb-12">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                    </div>
+@section('content')
+<div class="container-xxl flex-grow-1 container-p-y">
+    <!-- Basic Layout -->
+    <div class="row custom-rtl">
+        <div class="col-xl">
+            <div class="card my-7 mx-auto" style="max-width: 800px">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">إضافة خدمة فرعية جديدة</h5>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('dashboard.sub_services.store') }}" method="POST"
+                        enctype="multipart/form-data">
+                        @csrf
 
-                    <div class="card-body">
+                        <div class="row">
 
-                        <!-- Display validation errors -->
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+                            <!-- العنوان -->
+                            <div class="col-12 mb-3">
+                                <label class="form-label" for="title">العنوان</label>
+                                <div class="input-group">
+                                    <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-heading"></i></span>
+                                    <input type="text" name="title" id="title"
+                                        class="custom-input form-control text-start @error('title') is-invalid @enderror"
+                                        value="{{ old('title') }}" placeholder="أدخل العنوان" required />
+                                </div>
+                                @error('title')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
-                        @endif
 
-                        <div class="container">
-                            <h2 class="mb-4">Create SubService</h2>
-                            <form action="{{ route('dashboard.sub_services.store') }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
+                            <!-- المحتوى -->
+                            <div class="col-md-12 col-12 mb-3">
+                                <label for="description" class="form-label">المحتوى</label>
+                                <textarea name="description" id="description"
+                                    class="custom-input form-control @error('description') is-invalid @enderror"
+                                    rows="3" placeholder="أضف المحتوى" required>{{ old('description') }}</textarea>
+                                @error('description')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">العنوان</label>
-                                    <input type="text" name="title" class="form-control" required>
-                                </div>
-
-
-
-                                <!-- Service -->
-                                <div class="col-12">
-                                    <label for="description" class="form-label text-dark fw-bold">المحتوى*</label>
-                                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
-                                        dir="rtl" placeholder="أدخل الخدمة هنا">{{ old('description') }}</textarea>
-                                    @error('description')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">الخدمة</label>
-                                    <select name="service_id" class="form-control" required>
+                            <!-- اختيار الخدمة -->
+                            <div class="col-md-6 col-12 mb-3">
+                                <label class="form-label" for="service_id">الخدمة</label>
+                                <div class="input-group">
+                                    <span class="input-group-text h-100 fs-6 px-3"><i
+                                            class="fas fa-list-alt"></i></span>
+                                    <select name="service_id" id="service_id"
+                                        class="custom-input form-select text-start @error('service_id') is-invalid @enderror"
+                                        required>
+                                        <option value="" disabled>اختر خدمة</option>
                                         @foreach ($services as $service)
-                                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                        <option value="{{ $service->id }}">{{ $service->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
+                                @error('service_id')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">الصورة</label>
-                                    <input type="file" name="image" class="form-control">
+                            <!-- صورة الخدمة الفرعية -->
+                            <div class="col-md-6 col-12 mb-3">
+                                <label for="image" class="form-label">الصورة</label>
+                                <input type="file" name="image" id="image"
+                                    class="custom-input form-control @error('image') is-invalid @enderror"
+                                    accept="image/*" onchange="previewImage(event)" />
+                                @error('image')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <div class="mt-2">
+                                    <img id="imagePreview" src="" alt="صورة المعاينة"
+                                        class="rounded-circle avatar-lg cursor-pointer"
+                                        style="display: none; max-width: 100px;" />
                                 </div>
+                            </div>
 
-                                <button type="submit" class="btn btn-primary">حفظ</button>
-                            </form>
                         </div>
-                    </div>
+
+                        <!-- زر الحفظ -->
+                        <button type="submit" class="btn btn-primary mt-4">
+                            <span class="material-symbols-rounded fs-6 me-1">add</span> إضافة
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-
-
-
-@section('css')
-    <style>
-        label {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .form-control {
-            border-radius: 0.375rem;
-            box-shadow: none;
-        }
-
-        button {
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #555;
-        }
-    </style>
-@endsection
-
-@section('js')
-    <script>
-        CKEDITOR.replace('description', {
-            contentsLangDirection: 'rtl',  // Set text direction to right-to-left
-            language: 'ar'  // Optionally, set the language to Arabic
-        });
-    </script>
+</div>
 @endsection

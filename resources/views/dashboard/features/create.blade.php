@@ -1,76 +1,107 @@
 @extends('dashboard.layout.main')
 
-@section('main')
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="py-2"><span class="text-muted fw-light">لوحة التحكم /</span> سمة/</span> انشاء</h4>
-        <!-- Basic Layout -->
-        <div class="row">
-            <div class="col-xl">
-                <div class="card mb-12">
-                    <div class="card-header d-flex justify-content-between align-items-center">
+@section('content')
+<div class="container-xxl flex-grow-1 container-p-y">
+    <!-- Basic Layout -->
+    <div class="row custom-rtl">
+        <div class="col-xl">
+            <div class="card my-7 col-lg-8 mx-auto">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">إنشاء سمة جديدة</h5>
+                </div>
+                <div class="card-body">
+
+                    <!-- Display validation errors -->
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
+                    @endif
 
-                    <div class="card-body">
+                    <form action="{{ route('dashboard.features.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
 
-                        <!-- Display validation errors -->
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+                        <div class="row">
+
+                            <!-- العنوان -->
+                            <div class="col-md-6 col-12 mb-3">
+                                <label class="form-label" for="title">العنوان</label>
+                                <div class="input-group">
+                                    <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-heading"></i></span>
+                                    <input type="text" name="title" id="title"
+                                        class="custom-input form-control text-start @error('title') is-invalid @enderror"
+                                        placeholder="أدخل العنوان" />
+                                </div>
+                                @error('title')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
-                        @endif
 
-                        <div class="container">
-                            <h2 class="mb-4">انشاء سمة</h2>
-                            <form action="{{ route('dashboard.features.store') }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
-
-                                <div class="mb-3">
-                                    <label class="form-label">العنوان</label>
-                                    <input type="text" name="title" class="form-control" >
+                            <!-- المحتوى -->
+                            <div class="col-md-6 col-12 mb-3">
+                                <label class="form-label" for="description">المحتوى</label>
+                                <div class="input-group">
+                                    <textarea name="description" id="description"
+                                        class="custom-input form-control text-start @error('description') is-invalid @enderror"
+                                        rows="1" placeholder="أضف محتوى للسمة"></textarea>
                                 </div>
+                                @error('description')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">المحتوى</label>
-                                    <textarea name="description" class="form-control" ></textarea>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">الخدمة</label>
-                                    <select name="service_id" class="form-control" >
-                                        <option value="">الكل</option>
+                            <!-- اختيار الخدمة -->
+                            <div class="col-md-6 col-12 mb-3">
+                                <label class="form-label" for="service_id">الخدمة</label>
+                                <div class="input-group">
+                                    <span class="input-group-text h-100 fs-6 px-3"><i
+                                            class="fas fa-list-alt"></i></span>
+                                    <select name="service_id" id="service_id"
+                                        class="custom-input form-select text-start @error('service_id') is-invalid @enderror">
+                                        <option value="" selected disabled>اختر خدمة</option>
                                         @foreach ($services as $service)
-                                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                        <option value="{{ $service->id }}">{{ $service->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
+                                @error('service_id')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">الصورة</label>
-                                    <input type="file" name="image" class="form-control">
+                            <!-- الصورة -->
+                            <div class="col-md-6 col-12 mb-3">
+                                <label class="form-label" for="image">الصورة</label>
+                                <div class="input-group gap-2">
+                                    <input type="file" name="image" id="image"
+                                        class="custom-input form-control @error('image') is-invalid @enderror" />
+                                    @error('image')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
+                                <!-- Preview uploaded image -->
+                                <div class="mt-2">
+                                    <img id="imagePreview" src="" alt="صورة المعاينة"
+                                        class="rounded-circle avatar-lg cursor-pointer"
+                                        style="display: none; max-width: 100px;" />
+                                </div>
+                            </div>
 
-                                <button type="submit" class="btn btn-primary">حفظ</button>
-                            </form>
                         </div>
-                    </div>
+
+                        <!-- زر الحفظ -->
+                        <button type="submit" class="btn btn-primary mt-4">
+                            <span class="material-symbols-rounded fs-6 me-1">save</span> حفظ
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection
 
-
-
-@section('js')
-    <script>
-        CKEDITOR.replace('descraption_ar', {
-            contentsLangDirection: 'rtl', // Set text direction to right-to-left
-            language: 'ar' // Optionally, set the language to Arabic
-        });
-    </script>
-@endsection

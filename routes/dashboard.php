@@ -173,10 +173,13 @@ Route::middleware(['auth:admin', 'optimizeImages'])->name('dashboard.')->group(f
     Route::get('settings/meta', [SettingsController::class, 'index'])->name('settings.index');
     Route::put('settings/meta', [SettingsController::class, 'update'])->name('settings.update');
 
+    Route::get('invoices/replicate/{id}', [InvoiceController::class, 'replicateInvoice'])
+        ->name('invoices.replicate');
 
 
     Route::resource('invoices',         InvoiceController::class)->except('destroy', 'show');
     Route::delete('invoices/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy');
+
 
 
     Route::get('languages/{slug?}', [LanguageController::class, 'index'])->name('languages.index');

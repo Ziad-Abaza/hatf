@@ -1,92 +1,111 @@
 @extends('dashboard.layout.main')
 
-@section('main')
-    <div class="container-xxl flex-grow-1 container-p-y" dir="rtl">
-        <h4 class="py-3 mb-4"><span class="text-muted fw-light">لوحة التحكم/</span> إضافة مسوق</h4>
+@section('content')
+<div class="container-xxl flex-grow-1 container-p-y my-5" dir="rtl">
+    <!-- Form Card -->
+    <div class="card shadow border-0 col-lg-8 mx-auto">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 text-start">إضافة عميل جديد</h5>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('dashboard.customer.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
 
-        <!-- Basic Layout -->
-        <div class="row">
-            <div class="col-xl">
-                <div class="card mb-12">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 text-start"> إضافة عمل جديد </h5>
+                <!-- Display validation errors -->
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
+                <div class="row g-3">
+
+                    <!-- Name -->
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">اسم العميل</label>
+                        <div class="input-group">
+                            <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-user"></i></span>
+                            <input type="text" name="name" id="name"
+                                class="custom-input form-control text-start @error('name') is-invalid @enderror"
+                                placeholder="أدخل اسم العميل" value="{{ old('name') }}" required />
+                            @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <form action="{{ route('dashboard.customer.store') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
 
-                            <div class="row">
-                                <div class="col-6 mb-3">
-                                    <label class="form-label" for="basic-default-name">إسم العميل</label>
-                                    <input type="text" name="name"
-                                        class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
-                                        id="basic-default-name" placeholder="اكتب اسم واضح للعميل" />
-                                    @error('name')
-                                        <div
-                                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">بريد العميل</label>
+                        <div class="input-group">
+                            <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-envelope"></i></span>
+                            <input type="email" name="email" id="email"
+                                class="custom-input form-control text-start @error('email') is-invalid @enderror"
+                                placeholder="أدخل بريد العميل" value="{{ old('email') }}" required />
+                            @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
 
-                                <div class="col-6 mb-3">
-                                    <label class="form-label" for="basic-default-name">يريد العميل</label>
-                                    <input type="text" name="email"
-                                        class="form-control @error('email') is-invalid @enderror"
-                                        value="{{ old('email') }}" id="basic-default-name"
-                                        placeholder="اكتب بريد واضح للعميل" />
-                                    @error('email')
-                                        <div
-                                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
+                    <!-- Phone Number -->
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label">رقم الهاتف</label>
+                        <div class="input-group">
+                            <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-phone"></i></span>
+                            <input type="tel" name="phone" class="custom-input form-control text-start @error('phone') is-invalid @enderror"
+                                id="basic-default-phone" placeholder="+966 5XXXXXXXX" maxlength="13" inputmode="numeric" required />
+                            @error('phone')
+                            <div class="form-text">يجب أن يبدأ بـ 966</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
 
-                                <div class="col-6 mb-3">
-                                    <label class="form-label" for="basic-default-name">رقم العميل</label>
-                                    <input type="number" name="phone"
-                                        class="form-control @error('phone') is-invalid @enderror"
-                                        value="{{ old('phone') }}" id="basic-default-name"
-                                        placeholder="اكتب رقم واضح للمسوق" />
-                                    @error('phone')
-                                        <div
-                                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
+                    <!-- Service -->
+                    <div class="col-md-6">
+                        <label for="service" class="form-label">الخدمة</label>
+                        <div class="input-group">
+                            <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-cog"></i></span>
+                            <select id="service" name="service" class="custom-input form-select text-start">
+                                <option value="تصميم" {{ old('service')=='تصميم' ? 'selected' : '' }}>تصميم</option>
+                                <option value="تسويق" {{ old('service')=='تسويق' ? 'selected' : '' }}>تسويق</option>
+                                <option value="برمجة" {{ old('service')=='برمجة' ? 'selected' : '' }}>برمجة</option>
+                                <option value="صوتي و مرئي" {{ old('service')=='صوتي و مرئي' ? 'selected' : '' }}>صوتي و
+                                    مرئي</option>
+                                <option value="أخرى" {{ old('service')=='أخرى' ? 'selected' : '' }}>أخرى</option>
+                            </select>
+                        </div>
+                    </div>
 
-                                <div class="col-6 mb-3">
-                                    <label for="select2Basic" class="form-label">الخدمة</label>
-                                    <select id="select2Basic" name="service" class="select2 form-select form-select-lg"
-                                        data-allow-clear="true">
-                                        <option value="تصميم" selected>تصميم</option>
-                                        <option value="تسويق">تسويق</option>
-                                        <option value="برمجة">برمجة</option>
-                                        <option value="صوتي و مرئي">صوتي و مرئي</option>
-                                        <option value="أخرى">أخرى</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-12 mb-3">
-                                    <label for="desc" class="form-label">الوصف</label>
-                                    <textarea name="desc" class="form-control @error('desc') is-invalid @enderror" id="desc" rows="3">{{ old('desc') }}</textarea>
-                                    @error('desc')
-                                        <div
-                                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary">إضافة المسوق</button>
-                        </form>
+                    <!-- Description -->
+                    <div class="col-12">
+                        <label for="desc" class="form-label">الوصف</label>
+                        <div class="input-group">
+                            <textarea name="desc" id="desc" rows="3"
+                                class="custom-input form-control text-end @error('desc') is-invalid @enderror"
+                                placeholder="اكتب وصفًا للخدمة">{{ old('desc') }}</textarea>
+                            @error('desc')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
+                <!-- Submit Button -->
+                <div class="row mt-4">
+                    <div class="col-12 d-flex justify-content-start">
+                        <button type="submit" class="btn btn-primary rounded-pill px-4">
+                            <span class="material-symbols-rounded fs-6 me-1">add</span> إضافة العميل
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 @endsection

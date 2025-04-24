@@ -1,78 +1,99 @@
 @extends('dashboard.layout.main')
 
-@section('main')
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="py-2"><span class="text-muted fw-light">لوحة التحكم /</span> الفوتر</h4>
-        {{--
-        <div class="col-lg-4 pb-4">
-            <div class="demo-inline-spacing">
-                <a href="{{ route('dashboard.header.create') }}" class="btn btn-primary" style="color: #fff">
-                    Create FAQ
-                </a>
-            </div>
-        </div> --}}
+@section('content')
+<div class="container-xxl flex-grow-1 container-p-y my-2" dir="rtl">
+    <h4 class="py-2 text-end"><span class="text-muted fw-light">لوحة التحكم /</span> الفوتر</span></h4>
+    <!-- Header -->
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">بيانات الفوتر</h5>
+            <a href="{{ route('dashboard.footer.edit', $footer->id ?? 0) }}" class="btn btn-primary">
+                <span class="material-symbols-rounded fs-6 me-1">edit</span> تعديل
+            </a>
+        </div>
+    </div>
 
-        <!-- Hoverable Table rows -->
-        <div class="card">
-            {{-- <h5 class="card-header">Hoverable rows</h5> --}}
-            <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
-
-                    <thead>
-                        <tr>
-                            <th>ترتيب</th>
-                            <th>الإيميل</th>
-                            <th>الهاتف</th>
-                            <th>منصة X</th>
-                            <th>يوتيوب</th>
-                            <th>فيس بوك</th>
-                            <th>العمليات</th>
-                        </tr>
-                    </thead>
-
-                    <tbody class="table-border-bottom-0">
-                        {{-- @foreach ($header as $head) --}}
-                        <tr>
-                            <td>
-                                <span class="fw-medium">{{ $footer->id }}</span>
-                            </td>
-                            <td>
-                                <span class="fw-medium">{{ $footer->email }}</span>
-                            </td>
-                            <td>
-                                <span class="fw-medium">{{ $footer->phone }}</span>
-                            </td>
-                            <td>
-                                <span class="fw-medium">{{ $footer->twitter }}</span>
-                            </td>
-                            <td>
-                                <span class="fw-medium">{{ $footer->youtube }}</span>
-                            </td>
-                            <td>
-                                <span class="fw-medium">{{ $footer->facebook }}</span>
-                            </td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="ti ti-dots-vertical"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('dashboard.footer.edit', $footer->id) }}"><i
-                                                class="ti ti-pencil me-1"></i> تعديل</a>
-                                        {{-- <a class="dropdown-item" href="{{ route('dashboard.faq.delete', $faq->id) }}"><i
-                                                    class="ti ti-trash me-1"></i>
-                                                Delete</a> --}}
-                                    </div>
+    <!-- Footer Data -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    @if ($footer)
+                    <div class="row searchable-item">
+                        <!-- البريد الإلكتروني -->
+                        <div class="col-12 col-md-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4 text-end text-muted fw-bold">
+                                    البريد الإلكتروني:
                                 </div>
-                            </td>
-                        </tr>
-                        {{-- @endforeach --}}
-                    </tbody>
-                </table>
+                                <div class="col-12 col-md-8">
+                                    <span class="text-dark">{{ $footer->email }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- رقم الهاتف -->
+                        <div class="col-12 col-md-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4 text-end text-muted fw-bold">
+                                    رقم الهاتف:
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <span class="text-dark">{{ $footer->phone }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- تويتر -->
+                        <div class="col-12 col-md-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4 text-end text-muted fw-bold">
+                                    منصة X (تويتر):
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <a href="{{ $footer->twitter }}" target="_blank" class="text-primary">
+                                        {{ $footer->twitter }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- يوتيوب -->
+                        <div class="col-12 col-md-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4 text-end text-muted fw-bold">
+                                    يوتيوب:
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <a href="{{ $footer->youtube }}" target="_blank" class="text-danger">
+                                        {{ $footer->youtube }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- فيسبوك -->
+                        <div class="col-12 col-md-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4 text-end text-muted fw-bold">
+                                    فيسبوك:
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <a href="{{ $footer->facebook }}" target="_blank" class="text-info">
+                                        {{ $footer->facebook }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @else
+                    <div class="alert alert-warning text-center" role="alert">
+                        لا توجد بيانات للفوتر. يمكنك إضافة البيانات الآن.
+                    </div>
+                    @endif
+                </div>
             </div>
         </div>
-        <!--/ Hoverable Table rows -->
-
     </div>
+</div>
 @endsection
