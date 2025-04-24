@@ -86,6 +86,9 @@
         p{
             font-size: 1rem;
         }
+            footer{
+            direction: ltr;
+    }
 
 </style>
 @endsection

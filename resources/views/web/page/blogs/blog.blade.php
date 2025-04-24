@@ -118,6 +118,9 @@
         }
 
     }
+    footer{
+            direction: ltr;
+    }
 
 /*
 background: linear-gradient(135deg, rgba(231, 181, 30, 0.7), rgba(255, 255, 255, 0.3));
