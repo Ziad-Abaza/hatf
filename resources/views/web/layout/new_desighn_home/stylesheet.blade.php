@@ -3,6 +3,7 @@
     <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" type="image/svg+xml" />
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon.ico') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('front/assets/imgs/favicon.ico?v=2') }}">
+    <link rel="shortcut icon" href="front/assets/imgs/favicon.ico">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('front/new_design/src/bootstrap/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('front/new_design/src/bootstrap/bootstrap.min.css.map')}}">
