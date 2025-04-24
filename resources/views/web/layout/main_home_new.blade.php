@@ -12,9 +12,9 @@
     <meta name="keywords" content="{{ config('app-meta.key_words') }}" />
     <meta name="author" content="Hatf" />
     <meta name="robots" content="index, follow" />
-    {{-- <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" type="image/svg+xml" /> --}}
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/forces.png') }}">
-    <link rel="icon" href="{{ asset('front/assets/imgs/favicon.ico?v=2') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('front/assets/imgs/favicon.ico?v=2') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('web.layout.new_desighn_home.js_header')
     @include('web.layout.new_desighn_home.stylesheet')
