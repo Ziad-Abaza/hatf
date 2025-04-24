@@ -14,7 +14,7 @@
     <meta name="description" content="{{ config('app-meta.descraption') }}" />
     <meta name="keywords" content="{{ config('app-meta.key_words') }}" />
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" type="image/svg+xml" />
+    {{-- <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" type="image/svg+xml" /> --}}
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/forces.png') }}">
     <link rel="icon" href="{{ asset('front/assets/imgs/favicon.ico') }}" type="image/x-icon">
     <link rel="alternate" href="https://hatf.sa/" hreflang="ar-sa"  />
