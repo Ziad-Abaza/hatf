@@ -13,10 +13,10 @@
     <meta name="keywords" content="{{ config('app-meta.key_words') }}" />
     <meta name="author" content="Hatf" />
     <meta name="robots" content="index, follow" />
-    <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" type="image/svg+xml" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon.ico') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('front/assets/imgs/favicon.ico?v=2') }}">
-    <link rel="shortcut icon" href="front/assets/imgs/favicon.ico">
+    <link rel="icon" href="{{ asset('front/assets/imgs/favicon-v2.svg') }}" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon-v2.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('front/assets/imgs/favicon-v2.ico?v=2') }}">
+    <link rel="shortcut icon" href="front/assets/imgs/favicon-v2.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('web.layout.new_desighn_home.js_header')
     @include('web.layout.new_desighn_home.stylesheet')

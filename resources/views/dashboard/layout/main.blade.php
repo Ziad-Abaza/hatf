@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" type="image/svg+xml" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon.svg') }}">
-    <link rel="icon" type="image/png" href="{{ asset('front/assets/imgs/favicon.ico') }}">
+    <link rel="icon" href="{{ asset('front/assets/imgs/favicon-v2.svg') }}" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon-v2.svg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('front/assets/imgs/favicon-v2.ico') }}">
     <title>@yield('title', 'Dashboard')</title>
     <meta name="google-site-verification" content="7OcgnESmK0Fqde8PB1BnRYzqoh_1YuxD3-bquOlYqZE" />
     <!-- Fonts and icons -->
@@ -24,7 +24,7 @@
     <link id="pagestyle" href="{{ asset('assets/css/material-dashboard.css?v=3.2.0') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link id="pagestyle" href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet" />
-    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('favicon-v2.ico')}}" type="image/x-icon">
     @stack('styles')
 </head>
 

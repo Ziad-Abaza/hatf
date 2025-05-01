@@ -16,16 +16,16 @@
     <meta name="keywords" content="{{ config('app-meta.key_words') }}" />
     <meta name="author" content="Hatf" />
     <meta name="robots" content="index, follow" />
-    <!-- Favicon -->
+    <!-- favicon-v2 -->
     <!--<link-->
     <!--  rel="icon"-->
     <!--  href="{{ asset('front/assets/imgs/hatf.svg') }}"-->
     <!--  type="image/svg+xml"-->
     <!--/>-->
-    <link rel="icon" href="{{ asset('front/assets/imgs/favicon.svg') }}" type="image/svg+xml" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon.ico') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('front/assets/imgs/favicon.ico?v=2') }}">
-    <link rel="shortcut icon" href="front/assets/imgs/favicon.ico">
+    <link rel="icon" href="{{ asset('front/assets/imgs/favicon-v2.svg') }}" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon-v2.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('front/assets/imgs/favicon-v2.ico?v=2') }}">
+    <link rel="shortcut icon" href="front/assets/imgs/favicon-v2.ico">
     <link rel="alternate" href="https://hatf.sa/" hreflang="ar-sa"  />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('front/assets/css/owl.carousel.min.css') }}" />
