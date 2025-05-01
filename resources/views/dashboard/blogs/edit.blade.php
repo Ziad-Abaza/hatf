@@ -18,7 +18,7 @@
                     <div class="col-md-6">
                         <label for="basic-default-title_ar" class="form-label">العنوان (عربي)</label>
                         <div class="input-group">
-                            <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-heading"></i></span>
+                            {{-- <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-heading"></i></span> --}}
                             <input type="text" name="title_ar" id="basic-default-title_ar"
                                 class="custom-input form-control text-start @error('title_ar') is-invalid @enderror"
                                 value="{{ old('title_ar', $blog->title_ar) }}"
@@ -35,29 +35,25 @@
                         <div class="input-group d-flex gap-2 justify-content-between">
                             <input type="file" name="img" id="basic-default-img"
                                 class="custom-input form-control text-start @error('img') is-invalid @enderror" />
-                                @if ($blog->img)
-                                <div class="">
-                                    <img src="{{ asset('storage/images/' . $blog->img) }}" alt="Current Image"
-                                        class="rounded-circle avatar-md cursor-pointer" data-bs-toggle="modal" data-bs-target="#imageModal"
-                                        data-image="{{ asset('storage/images/' . $blog->img) }}" />
-                                </div>
-                                @endif
+                            @if ($blog->img)
+                            <div>
+                                <img src="{{ asset('storage/images/' . $blog->img) }}" alt="Current Image"
+                                    class="rounded-circle avatar-md cursor-pointer" data-bs-toggle="modal"
+                                    data-bs-target="#imageModal"
+                                    data-image="{{ asset('storage/images/' . $blog->img) }}" />
+                            </div>
+                            @endif
                             @error('img')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                                            </div>
+                    </div>
                 </div>
+
                 <!-- Article Content (Arabic) -->
-                <div class="col-md-12">
-                    <label for="descraption_ar" class="form-label">المقال (عربي)</label>
-                    <textarea name="descraption_ar" id="descraption_ar" rows="5"
-                        class="custom-input form-control text-end @error('descraption_ar') is-invalid @enderror"
-                        placeholder="اكتب محتوى المقال بالعربي">{{ old('descraption_ar', $blog->descraption_ar) }}</textarea>
-                    @error('descraption_ar')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
+                <x-form.text-editor name="descraption_ar" label="المقال (عربي)"
+                    :value="old('descraption_ar', $blog->descraption_ar)" />
+
                 <!-- Submit Button -->
                 <div class="row mt-4">
                     <div class="col-12 d-flex justify-content-start">

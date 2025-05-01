@@ -18,7 +18,7 @@
                     <div class="col-md-6">
                         <label for="basic-default-title_ar" class="form-label">العنوان (عربي)</label>
                         <div class="input-group">
-                            <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-heading"></i></span>
+                            {{-- <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-heading"></i></span> --}}
                             <input type="text" name="title_ar" id="basic-default-title_ar"
                                 class="custom-input form-control text-start @error('title_ar') is-invalid @enderror"
                                 value="{{ old('title_ar') }}" placeholder="اكتب عنوان المقال بالعربي" />
@@ -40,16 +40,10 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Article Content (Arabic) -->
-                <div class="col-md-12">
-                    <label for="descraption_ar" class="form-label">المقال (عربي)</label>
-                    <textarea name="descraption_ar" id="descraption_ar" rows="5"
-                        class="custom-input form-control text-end @error('descraption_ar') is-invalid @enderror"
-                        placeholder="اكتب محتوى المقال بالعربي">{{ old('descraption_ar') }}</textarea>
-                    @error('descraption_ar')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
+                <x-form.text-editor name="descraption_ar" label="المقال (عربي)" :value="old('descraption_ar')" />
+
                 <!-- Submit Button -->
                 <div class="row mt-4">
                     <div class="col-12 d-flex justify-content-start">

@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link id="pagestyle" href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet" />
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
+    @stack('styles')
 </head>
 
 <body class="g-sidenav-show bg-gray-100 rtl">
@@ -57,6 +58,7 @@
     <script src="{{ asset('assets/js/besic-dashboard.js') }}"></script>
     <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    @stack('scripts')
 </body>
 
 </html>
