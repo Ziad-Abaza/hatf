@@ -59,20 +59,19 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        $now = Carbon::now();
-        $yearDigit = substr($now->year, -1);
-        $month = str_pad($now->month, 2, '0', STR_PAD_LEFT);
-        $day = str_pad($now->day, 2, '0', STR_PAD_LEFT);
-        $prefix = "{$yearDigit}{$month}{$day}";
+        $countInvoices = Payment::count();
+        if (!$countInvoices) {
+            $nextInvoice = '001'; // Start sequence from 001
+        } else {
+            $nextInvoice = str_pad($countInvoices + 1, 3, '0', STR_PAD_LEFT); // Increment and pad with zeros
+        }
 
-        $countToday = Payment::whereDate('created_at', $now->toDateString())->count();
-        $nextInvoice = str_pad($countToday + 1, 3, '0', STR_PAD_LEFT);
+        $formattedDate = \Carbon\Carbon::now()->format('Ymd');
+        $yearWithout20 = substr($formattedDate, 2);
 
-        $invoiceNumber = $prefix . $nextInvoice;
-
+        $invoiceNumber = $yearWithout20  . $nextInvoice;
         return view('dashboard.invoices.create', ['invoiceNumber' => $invoiceNumber]);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -152,15 +151,11 @@ class InvoiceController extends Controller
 
     private function generateNewInvoiceNumber()
     {
-        $now = Carbon::now();
-        $yearDigit = substr($now->year, -1);
-        $month = str_pad($now->month, 2, '0', STR_PAD_LEFT);
-        $day = str_pad($now->day, 2, '0', STR_PAD_LEFT);
-        $prefix = "{$yearDigit}{$month}{$day}";
+        $countInvoices = Payment::count() + 1;
+        $nextInvoice = str_pad($countInvoices, 3, '0', STR_PAD_LEFT);
+        $formattedDate = \Carbon\Carbon::now()->format('Ymd');
+        $yearWithout20 = substr($formattedDate, 2);
 
-        $countToday = Payment::whereDate('created_at', $now->toDateString())->count();
-        $nextInvoice = str_pad($countToday + 1, 3, '0', STR_PAD_LEFT);
-
-        return $prefix . $nextInvoice;
+        return $yearWithout20 . $nextInvoice;
     }
 }
