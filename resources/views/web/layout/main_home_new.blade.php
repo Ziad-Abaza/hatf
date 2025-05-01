@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta charset="utf-8" />
     <meta name="facebook-domain-verification" content="io9rpttns7ztrjz273fs9q4dwk1g4b" />
-    <meta name="google-site-verification" content="3Fg8fQvJVpe_y5VW_SoU2h44JxrZYkAxj6Fqy8xZM7M" />
+    {{-- <meta name="google-site-verification" content="3Fg8fQvJVpe_y5VW_SoU2h44JxrZYkAxj6Fqy8xZM7M" /> --}}
+    <meta name="google-site-verification" content="7OcgnESmK0Fqde8PB1BnRYzqoh_1YuxD3-bquOlYqZE" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title')</title>
     <meta name="description" content="{{ config('app-meta.descraption') }}" />

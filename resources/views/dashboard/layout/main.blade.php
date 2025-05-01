@@ -8,6 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon.svg') }}">
     <link rel="icon" type="image/png" href="{{ asset('front/assets/imgs/favicon.ico') }}">
     <title>@yield('title', 'Dashboard')</title>
+    <meta name="google-site-verification" content="7OcgnESmK0Fqde8PB1BnRYzqoh_1YuxD3-bquOlYqZE" />
     <!-- Fonts and icons -->
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
