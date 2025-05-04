@@ -6,7 +6,6 @@
     <link rel="shortcut icon" href="front/assets/imgs/favicon-v2.ico">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('front/new_design/src/bootstrap/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('front/new_design/src/bootstrap/bootstrap.min.css.map')}}">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>

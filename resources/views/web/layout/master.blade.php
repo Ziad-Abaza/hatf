@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="{{ asset('front/new_design/src/style/main.css') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('front/new_design/src/bootstrap/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('front/new_design/src/bootstrap/bootstrap.min.css.map') }}">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <!-- google font -->
@@ -125,7 +124,6 @@
 
     <!-- Bootstrap js -->
     <script src="{{ asset('front/new_design/src/bootstrap/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('front/new_design/src/bootstrap/bootstrap.bundle.min.js.map') }}"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
