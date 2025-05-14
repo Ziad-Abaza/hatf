@@ -17,31 +17,6 @@ class HeaderController extends Controller
         $header = Header::first();
         return view('dashboard.header.index', compact('header'));
     }
-
-    // /**
-    //  * Show the form for creating a new resource.
-    //  */
-    // public function create()
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Store a newly created resource in storage.
-    //  */
-    // public function store(Request $request)
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Display the specified resource.
-    //  */
-    // public function show(Header $header)
-    // {
-    //     //
-    // }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -58,12 +33,4 @@ class HeaderController extends Controller
         $header->update($request->validated());
         return redirect()->route('dashboard.our-team.index');
     }
-
-    // /**
-    //  * Remove the specified resource from storage.
-    //  */
-    // public function destroy(Header $header)
-    // {
-    //     //
-    // }
 }

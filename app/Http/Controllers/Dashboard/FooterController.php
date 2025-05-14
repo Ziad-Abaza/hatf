@@ -18,30 +18,6 @@ class FooterController extends Controller
         return view('dashboard.footer.index', compact('footer'));
     }
 
-    // /**
-    //  * Show the form for creating a new resource.
-    //  */
-    // public function create()
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Store a newly created resource in storage.
-    //  */
-    // public function store(Request $request)
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Display the specified resource.
-    //  */
-    // public function show(Footer $footer)
-    // {
-    //     //
-    // }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -58,12 +34,4 @@ class FooterController extends Controller
         $footer->update($request->validated());
         return redirect()->route('dashboard.footer.index');
     }
-
-    // /**
-    //  * Remove the specified resource from storage.
-    //  */
-    // public function destroy(Footer $footer)
-    // {
-    //     //
-    // }
 }

@@ -73,7 +73,7 @@
                             <div class="input-group">
                                 <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-phone"></i></span>
                                 <input type="tel" name="phone" class="custom-input form-control text-start @error('phone') is-invalid @enderror"
-                                    id="basic-default-phone" placeholder="+966 5XXXXXXXX" maxlength="13" inputmode="numeric" required />
+                                    id="basic-default-phone" placeholder="+966 5XXXXXXXX" maxlength="16" inputmode="numeric" required />
                                     @error('phone')
                                 <div class="form-text">يجب أن يبدأ بـ 966</div>
                                 <div class="invalid-feedback">{{ $message }}</div>

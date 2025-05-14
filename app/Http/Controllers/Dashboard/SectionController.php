@@ -17,34 +17,6 @@ class SectionController extends Controller
         $section = Section::first();
         return view('dashboard.section.index', compact('section'));
     }
-
-    // /**
-    //  * Show the form for creating a new resource.
-    //  */
-    // public function create()
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Store a newly created resource in storage.
-    //  */
-    // public function store(Request $request)
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Display the specified resource.
-    //  */
-    // public function show(Section $section)
-    // {
-    //     //
-    // }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Section $section)
     {
         return view('dashboard.section.edit', compact('section'));
@@ -90,12 +62,5 @@ class SectionController extends Controller
         $section->update($data);
         return redirect()->route('dashboard.section.index');
     }
-
-    // /**
-    //  * Remove the specified resource from storage.
-    //  */
-    // public function destroy(Section $section)
-    // {
-    //     //
-    // }
+   
 }

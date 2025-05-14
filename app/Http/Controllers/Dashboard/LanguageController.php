@@ -15,7 +15,7 @@ class LanguageController extends Controller
     {
         $this->langPath = "frontend/{$slug}.php";
 
-        
+
         $translations = [
             'en' => include base_path('lang/en/' . $this->langPath),
             'ar' => include base_path('lang/ar/' . $this->langPath),
@@ -28,14 +28,14 @@ class LanguageController extends Controller
     {
 
         $this->langPath = "frontend/{$slug}.php";
-        
+
         // Load the specific language file
         $translations = include base_path("lang/{$locale}/" . $this->langPath);
 
 
         // Navigate to the requested key (dot notation to array)
         $value = data_get($translations, $key);
-       
+
 
         return view('dashboard.Language.edit', compact('locale', 'key', 'value','language','slug'));
     }
@@ -64,17 +64,4 @@ class LanguageController extends Controller
 
         file_put_contents($filePath, $content);
     }
-
-    // public function getTranslationFiles()
-    // {
-    //     $path = base_path('lang/ar/frontend'); // Define the path to the directory
-    //     $files = File::allFiles($path); // Get all files in the directory
-    
-    //     // Extract just the file names without the '.php' extension
-    //     $fileNames = array_map(function ($file) {
-    //         return pathinfo($file->getFilename(), PATHINFO_FILENAME); // Get file name without extension
-    //     }, $files);
-    
-    //     return $fileNames; // Return the array of file names without extension
-    // }
 }

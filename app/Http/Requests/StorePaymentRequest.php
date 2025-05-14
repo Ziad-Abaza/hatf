@@ -15,6 +15,16 @@ class StorePaymentRequest extends FormRequest
     }
 
     /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'phone' => preg_replace('/\s+/', '', $this->phone),
+        ]);
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
@@ -22,7 +32,6 @@ class StorePaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-
             'name' => 'required|string|max:2000',
             'email' => 'required|email|max:2000',
             'phone' => [
@@ -33,7 +42,6 @@ class StorePaymentRequest extends FormRequest
             'expenses' => 'required|numeric|min:0',
             'service' => 'required|string',
             'invoice_number' => 'required|numeric',
-
         ];
     }
 }
