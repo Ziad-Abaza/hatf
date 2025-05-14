@@ -36,6 +36,8 @@ class PaymentController extends Controller
         $response = curl_exec($ch);
         curl_close($ch);
 
+        Log::info('Validation response:', ['response' => $response]);
+
         return response()->json(json_decode($response, true));
     }
 
@@ -45,6 +47,8 @@ class PaymentController extends Controller
 
         // Add payment authorization logic here...
 
+        Log::info('Payment authorization response:', ['token' => $paymentToken]);
+
         return response()->json(['success' => true, 'result' => ['message' => 'Payment Authorized']]);
     }
 
@@ -53,6 +57,10 @@ class PaymentController extends Controller
 
         if ($invoice->status == 1) {
             // return view('errors.404');
+            Log::info('Payment already completed', [
+                'invoice_number' => $invoice->invoice_number,
+                'status' => $invoice->status,
+            ]);
             return $this->renderResult($invoice->transaction_number, 200, 'عملية دفع ناجحة', false);
         }
 
@@ -69,12 +77,26 @@ class PaymentController extends Controller
             'callback_url' => route('callback_url'),
         ];
 
+        Log::info('Payment request data:', [
+            'invoice_number' => $invoice->invoice_number,
+            'request_data' => $request,
+        ]);
+
         $url = ClickPayService::generatePaymentClickPay(new Request($request));
 
         // Load configuration values from .env
         $countryCode = config('app.APPLEPAY_COUNTRY_CODE', 'SA');
         $currency = config('app.APPLEPAY_CURRENCY', 'SAR');
         $amount = config('app.APPLEPAY_AMOUNT', $invoice->amount);
+
+        // Log the configuration values
+        Log::info('Configuration values:', [
+            'country_code' => $countryCode,
+            'invoice' => $invoice,
+            'url' => $url,
+            'currency' => $currency,
+            'amount' => $amount,
+        ]);
 
         // Pass data to Blade view
         return view('web.page.invoices.show', [
@@ -124,11 +146,20 @@ class PaymentController extends Controller
 
                 ]);
 
-
+                Log::channel('return_url')->info('Successful payment', [
+                    'time' => now(),
+                    'request_data' => request()->all(),
+                    'message' => 'success',
+                ]);
 
                 return $this->renderResult($data['tranRef'], 200, 'عملية دفع ناجحة', true);
             } else {
                 // Failed payment
+                Log::channel('return_url')->error('Failed payment', [
+                    'time' => now(),
+                    'request_data' => request()->all(),
+                    'message' => 'failedPayment',
+                ]);
                 $this->handleFailedPayment($payment, $data['tranRef']);
                 return $this->renderResult($data['tranRef'], 400, 'فشل فى عملية الدفع حاول مرة اخرى');
             }
@@ -148,6 +179,12 @@ class PaymentController extends Controller
                 }
             }
 
+            Log::error('Error in return_url', [
+                'time' => now(),
+                'error_message' => $th->getMessage(),
+                'request_data' => request()->all(),
+            ]);
+
             return $this->renderResult('غير متاح', 400, 'فشل فى عملية الدفع حاول مرة اخرى');
         }
     }
@@ -158,6 +195,12 @@ class PaymentController extends Controller
     private function renderResult(string $tranRef = null, int $code, string $message, $send = true)
     {
         if ($send == true) {
+            Log::info('Sending email notification', [
+                'tranRef' => $tranRef,
+                'code' => $code,
+                'message' => $message,
+            ]);
+
             Mail::to(['hatfpfp@gmail.com', 'Info@hatf.sa', 'islamm1995@gmail.com'])->send(new InvoiceNotification($tranRef, $code, $message));
         }
 
@@ -175,7 +218,10 @@ class PaymentController extends Controller
                 'message' => $messageMobile . ' رقم العملية ' . $tranRefText,
             ]);
 
-            Log::info('WhatsApp API response:', ['response' => $response->json()]);
+            Log::info('WhatsApp API response', [
+                'status' => $response->status(),
+                'body' => $response->body(),
+            ]);
         } catch (\Throwable $th) {
             Log::error('WhatsApp API Error: ' . $th->getMessage());
         }
@@ -273,6 +319,9 @@ class PaymentController extends Controller
     function is_valid_redirect($post_values)
     {
         if (empty($post_values) || !array_key_exists('signature', $post_values)) {
+            Log::error('Invalid redirect: Missing signature or empty post values', [
+                'post_values' => $post_values,
+            ]);
             return false;
         }
 
@@ -289,6 +338,10 @@ class PaymentController extends Controller
 
         // Generate URL-encoded query string of Post fields except signature field.
         $query = http_build_query($fields);
+
+        Log::info('Generated query string:', [
+            'query' => $query,
+        ]);
 
         return $this->is_genuine($query, $requestSignature, $serverKey);
     }
