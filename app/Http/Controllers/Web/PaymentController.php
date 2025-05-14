@@ -55,11 +55,16 @@ class PaymentController extends Controller
     public function show(Payment $invoice)
     {
 
+        Log::info("========== START Payment::show() ==========");
+        Log::info("Checking invoice status", [
+            'invoice_number' => $invoice->invoice_number,
+            'current_status' => $invoice->status,
+        ]);
+
         if ($invoice->status == 1) {
             // return view('errors.404');
-            Log::info('Payment already completed', [
+            Log::info("Invoice already paid – skipping payment initiation", [
                 'invoice_number' => $invoice->invoice_number,
-                'status' => $invoice->status,
             ]);
             return $this->renderResult($invoice->transaction_number, 200, 'عملية دفع ناجحة', false);
         }
@@ -118,9 +123,9 @@ class PaymentController extends Controller
     public function return_url()
     {
         // Log request data for debugging
-        Log::channel('return_url')->info('Request received at return_url', [
-            'time' => now(),
-            'request_data' => request()->all(),
+        Log::channel('return_url')->info("========== START return_url() ==========", [
+            'timestamp' => now(),
+            'incoming'  => request()->all(),
         ]);
 
         try {
@@ -194,12 +199,10 @@ class PaymentController extends Controller
      */
     private function renderResult(string $tranRef = null, int $code, string $message, $send = true)
     {
+        Log::info("========== START renderResult() ==========", compact('tranRef', 'code', 'message', 'send'));
+
         if ($send == true) {
-            Log::info('Sending email notification', [
-                'tranRef' => $tranRef,
-                'code' => $code,
-                'message' => $message,
-            ]);
+            Log::info("Sending email notification", compact('tranRef', 'code', 'message'));
 
             Mail::to(['hatfpfp@gmail.com', 'Info@hatf.sa', 'islamm1995@gmail.com'])->send(new InvoiceNotification($tranRef, $code, $message));
         }
