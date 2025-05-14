@@ -25,7 +25,7 @@
                         <li class="list-group-item border-0 px-0">
                             <div class="d-flex justify-content-between">
                                 <span>إجمالي المبالغ</span>
-                                <span class="text-dark font-weight-bold">${{ number_format($totalAmount, 2) }}</span>
+                                <span class="text-dark font-weight-bold">{{ number_format($totalAmount, 2) }} SAR</span>
                             </div>
                         </li>
                         <li class="list-group-item border-0 px-0">
@@ -43,8 +43,8 @@
                         <li class="list-group-item border-0 px-0">
                             <div class="d-flex justify-content-between">
                                 <span>إجمالي المدفوعات</span>
-                                <span class="text-dark font-weight-bold">${{ number_format($totalPaidAmount, 2)
-                                    }}</span>
+                                <span class="text-dark font-weight-bold">{{ number_format($totalPaidAmount, 2)
+                                    }} SAR</span>
                             </div>
                         </li>
                     </ul>
@@ -173,8 +173,8 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="text-sm font-weight-bold mb-0">${{ number_format($invoice->amount, 2)
-                                            }}</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{ number_format($invoice->amount, 2)
+                                            }} SAR</p>
                                     </td>
                                     <td >
                                         <span
@@ -205,8 +205,8 @@
                                                                 {{ $invoice->invoice_number }}</li>
                                                             <li class="list-group-item text-wrap"><strong>اسم الخدمة:</strong> {{
                                                                 $invoice->service }}</li>
-                                                            <li class="list-group-item"><strong>المبلغ:</strong> ${{
-                                                                number_format($invoice->amount, 2) }}</li>
+                                                            <li class="list-group-item"><strong>المبلغ:</strong> {{
+                                                                number_format($invoice->amount, 2) }} SAR</li>
                                                             <li class="list-group-item"><strong>الحالة:</strong>
                                                                 <span
                                                                     class="badge {{ $invoice->status == 1 ? 'bg-gradient-success' : ($invoice->status == 0 ? 'bg-gradient-warning' : 'bg-gradient-danger') }}">
@@ -218,15 +218,32 @@
                                                                 $invoice->transaction_number ?? 'غير متوفر' }}</li>
                                                             <li class="list-group-item text-wrap"><strong>اسم العميل:</strong> {{
                                                                 $invoice->name }}</li>
-                                                            <li class="list-group-item"><strong>رقم الهاتف:</strong>
-                                                                +966 {{ substr($invoice->phone, 0, 2) }} {{
-                                                                substr($invoice->phone, 2, 3) }} {{
-                                                                substr($invoice->phone, 5, 4) }}</li>
+                                                            @php
+                                                            // remove all non-digit characters from the phone number
+                                                            $cleanPhone = preg_replace('/\D+/', '', $invoice->phone);
+
+                                                            // check if the phone number starts with 966 or 05 or 5
+                                                            if (str_starts_with($cleanPhone, '966')) {
+                                                            $numberWithoutKey = substr($cleanPhone, 3); // remove 966
+                                                            } elseif (str_starts_with($cleanPhone, '05')) {
+                                                            $numberWithoutKey = substr($cleanPhone, 1); // remove 0
+                                                            } elseif (str_starts_with($cleanPhone, '5')) {
+                                                            $numberWithoutKey = $cleanPhone;  // no need to remove anything
+                                                            } else {
+                                                            $numberWithoutKey = $cleanPhone;
+                                                            }
+
+                                                            // format the phone number
+                                                            $formatted = '+966 ' . substr($numberWithoutKey, 0, 2) . ' ' . substr($numberWithoutKey, 2, 3) . ' ' .
+                                                            substr($numberWithoutKey, 5, 4);
+                                                            @endphp
+
+                                                            <li class="list-group-item"><strong>رقم الهاتف:</strong> {{ $formatted }}</li>
                                                             <li class="list-group-item"><strong>البريد
                                                                     الإلكتروني:</strong> {{ $invoice->email }}</li>
                                                             <li class="list-group-item"><strong>المصاريف
-                                                                    الإضافية:</strong> ${{
-                                                                number_format($invoice->expenses, 2) }}</li>
+                                                                    الإضافية:</strong> {{
+                                                                number_format($invoice->expenses, 2) }} SAR</li>
                                                             <li class="list-group-item"><strong>العملة:</strong> {{
                                                                 $invoice->currency ?? 'SAR' }}</li>
                                                             <li class="list-group-item"><strong>عدد المحاولات

@@ -25,7 +25,7 @@ class InvoiceController extends Controller
             $startDate = Carbon::parse($startDate);
             $endDate = Carbon::parse($endDate)->endOfDay();
         } else {
-            $startDate = Carbon::now()->subMonths(1);
+            $startDate = Carbon::now()->subMonths(72);
             $endDate = Carbon::now()->endOfDay();
         }
 
