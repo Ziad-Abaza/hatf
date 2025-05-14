@@ -1,0 +1,1 @@
+/home/u147754879/domains/hatf.sa/public_html/hatf/public/index.php
