@@ -139,6 +139,10 @@ class PaymentController extends Controller
             $tranRefResponse = ClickPayService::chickTransaction($data['tranRef']);
             $responseStatus = $tranRefResponse->payment_result->response_status ?? null;
 
+            Log::channel('return_url')->info('ClickPay full response', [
+                'tranRefResponse' => $tranRefResponse,
+            ]);
+
             // Find payment record
             $payment = Payment::where('uniqid', $data['cartId'])->firstOrFail();
 
