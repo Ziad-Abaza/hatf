@@ -2,13 +2,33 @@
 <html lang="ar" dir="rtl">
 
 <head>
-            <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGW6ZSCB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PGW6ZSCB');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGW6ZSCB" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="facebook-domain-verification" content="io9rpttns7ztrjz273fs9q4dwk1g4b" />
-    {{-- <meta name="google-site-verification" content="3Fg8fQvJVpe_y5VW_SoU2h44JxrZYkAxj6Fqy8xZM7M" /> --}}
-<meta name="google-site-verification" content="7OcgnESmK0Fqde8PB1BnRYzqoh_1YuxD3-bquOlYqZE" />
+    {{--
+    <meta name="google-site-verification" content="3Fg8fQvJVpe_y5VW_SoU2h44JxrZYkAxj6Fqy8xZM7M" /> --}}
+    <meta name="google-site-verification" content="7OcgnESmK0Fqde8PB1BnRYzqoh_1YuxD3-bquOlYqZE" />
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>هتف - Hatf</title>
@@ -26,7 +46,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/assets/imgs/favicon-v2.ico') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('front/assets/imgs/favicon-v2.ico?v=2') }}">
     <link rel="shortcut icon" href="front/assets/imgs/favicon-v2.ico">
-    <link rel="alternate" href="https://hatf.sa/" hreflang="ar-sa"  />
+    <link rel="alternate" href="https://hatf.sa/" hreflang="ar-sa"   />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('front/assets/css/owl.carousel.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/assets/css/owl.theme.default.css') }}" />
@@ -43,21 +63,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{ asset('front/assets/css/style2.css') }}" />
     @yield('css')
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                "gtm.start": new Date().getTime(),
-                event: "gtm.js",
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != "dataLayer" ? "&l=" + l : "";
-            j.async = true;
-            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, "script", "dataLayer", "GTM-PGW6ZSCB");
-    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8ZRMWHQRS"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -113,8 +118,8 @@
     <!-- start header section -->
     @include('web.layout.navbar_home')
 
-        <!-- start hero -->
-        <!-- end hero -->
+    <!-- start hero -->
+    <!-- end hero -->
 
     <!-- end header section -->
 
@@ -123,7 +128,7 @@
     {{-- //End content --}}
 
     <!-- start main page -->
-     @include('web.layout.footer')
+    @include('web.layout.footer')
 
     <!-- End main page -->
 
@@ -278,7 +283,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script type="application/ld+json">
-{
+        {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "hatf",
