@@ -128,6 +128,18 @@ class PaymentController extends Controller
             'incoming'  => request()->all(),
         ]);
 
+        Log::info('========== 🔔 return_url() incoming request data: ', [
+            'timestamp' => now(),
+            'method' => request()->method(),
+            'ip' => request()->ip(),
+            'full_url' => request()->fullUrl(),
+            'headers' => request()->headers->all(),
+            'query_params' => request()->query(),
+            'post_data' => request()->post(),
+            'json_data' => request()->json()->all(),
+            'raw_body' => request()->getContent(),
+        ]);
+
         try {
             // Validate request data
             $data = request()->all();
@@ -205,6 +217,18 @@ class PaymentController extends Controller
     {
         Log::info("========== START renderResult() ==========", compact('tranRef', 'code', 'message', 'send'));
 
+        Log::info("Render result called with:", [
+            'tranRef' => $tranRef,
+            'code' => $code,
+            'message' => $message,
+            'send_email' => $send,
+            'request_data' => request()->all(),
+            'request_headers' => request()->headers->all(),
+            'request_ip' => request()->ip(),
+            'request_method' => request()->method(),
+            'request_url' => request()->fullUrl()
+        ]);
+        
         if ($send == true) {
             Log::info("Sending email notification", compact('tranRef', 'code', 'message'));
 
