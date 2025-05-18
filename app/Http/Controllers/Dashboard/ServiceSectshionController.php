@@ -38,19 +38,19 @@ class ServiceSectshionController extends Controller
         // إضافة الـ service_id إلى البيانات القادمة من الطلب
         $data = $request->validated();
         $data['service_id'] = $service->id;
-    
+
         // إنشاء الـ ServiceSectshion باستخدام البيانات الصحيحة
         $subService = ServiceSectshion::create($data);
-    
+
         // التعامل مع تحميل الصورة باستخدام مكتبة Spatie Media Library
         if ($request->hasFile('image')) {
             $subService->addMedia($request->file('image'))->toMediaCollection('services_sectshions');
         }
-    
+
         return redirect()->route('dashboard.service.sectshion.index', $service->id)
             ->with('success', 'تم الإنشاء بنجاح.');
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -77,8 +77,8 @@ class ServiceSectshionController extends Controller
 
         // التعامل مع تحديث الصورة
         if ($request->hasFile('image')) {
-            $serviceSectshion->clearMediaCollection('service_sectshion');
-            $serviceSectshion->addMedia($request->file('image'))->toMediaCollection('service_sectshion');
+            $serviceSectshion->clearMediaCollection('services_sectshions');
+            $serviceSectshion->addMedia($request->file('image'))->toMediaCollection('services_sectshions');
         }
 
         return redirect()->route('dashboard.service.sectshion.index', $serviceSectshion->service_id)
@@ -92,7 +92,7 @@ class ServiceSectshionController extends Controller
     {
         $serviceSectshion->clearMediaCollection('services_sectshions'); // حذف الصور
         $serviceSectshion->delete();
-        
+
         return redirect()->route('dashboard.service.sectshion.index', $serviceSectshion->service_id)
             ->with('success', 'تم حذف  بنجاح.');
     }
