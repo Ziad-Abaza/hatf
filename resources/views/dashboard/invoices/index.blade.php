@@ -42,7 +42,7 @@
                         <li class="list-group-item border-0 px-0">
                             <div class="d-flex justify-content-between">
                                 <span>الفواتير الفاشلة أو المعلقة</span>
-                                <span class="text-danger font-weight-bold">{{ $totalInvoices-$successfulPayments }}</span>
+                                <span class="text-danger font-weight-bold">{{ $failedPayments }}</span>
                             </div>
                         </li>
                         <li class="list-group-item border-0 px-0">
