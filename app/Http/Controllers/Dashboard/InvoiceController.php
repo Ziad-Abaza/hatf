@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
 class InvoiceController extends Controller
@@ -25,29 +26,42 @@ class InvoiceController extends Controller
             $startDate = Carbon::parse($startDate);
             $endDate = Carbon::parse($endDate)->endOfDay();
         } else {
-            $startDate = Carbon::now()->subMonths(72);
+            $startDate = Carbon::now()->startOfMonth();
+            $startDateFirstWeek = Carbon::now()->startOfWeek();
             $endDate = Carbon::now()->endOfDay();
         }
 
         $baseQuery = Payment::whereBetween('created_at', [$startDate, $endDate]);
+        $baseQueryByWeek = Payment::whereBetween('created_at', [$startDateFirstWeek, $endDate]);
+        $allInvoices = Payment::all();
+
 
         $totalInvoices = $baseQuery->count();
+        $totalInvoicesByWeek = $baseQueryByWeek->count();
         $totalAmount = $baseQuery->sum('amount');
+        $totalAmountByWeek = $baseQueryByWeek->sum('amount');
 
         $successfulPayments = (clone $baseQuery)->where('status', '1')->count();
+        $successfulPaymentsByWeek = (clone $baseQueryByWeek)->where('status', '1')->count();
         $failedPayments = (clone $baseQuery)->where('status', '0')->count();
+        $failedPaymentsByWeek = (clone $baseQueryByWeek)->where('status', '0')->count();
         $totalPaidAmount = (clone $baseQuery)->where('status', '1')->sum('amount');
+        $totalPaidAmountByWeek = (clone $baseQueryByWeek)->where('status', '1')->sum('amount');
 
-        $latestInvoices = (clone $baseQuery)
-            ->orderBy('created_at', 'desc')
+        $latestInvoices = Payment::orderBy('created_at', 'desc')
             ->paginate(10);
 
         return view('dashboard.invoices.index', compact(
             'totalInvoices',
+            'totalInvoicesByWeek',
             'totalAmount',
+            'totalAmountByWeek',
             'successfulPayments',
+            'successfulPaymentsByWeek',
             'failedPayments',
+            'failedPaymentsByWeek',
             'totalPaidAmount',
+            'totalPaidAmountByWeek',
             'latestInvoices',
             'startDate',
             'endDate'
@@ -149,6 +163,25 @@ class InvoiceController extends Controller
         return redirect()->route('dashboard.invoices.index')->with('success', 'تم نسخ الفاتورة بنجاح');
     }
 
+    /**
+     * Mark an invoice as paid via external transfer
+     */
+    public function markAsPaid($id)
+    {
+        $payment = Payment::findOrFail($id);
+
+        $payment->update([
+            'status' => '1',
+            'transaction_number' => null,
+        ]);
+        Log::info('Invoice marked as paid', [
+            'invoice_id' => $payment->id,
+            'transaction_number' => null,
+            'status' => Payment::find($id)->status,
+        ]);
+
+        return redirect()->back()->with('success', 'تم تعليم الفاتورة كمدفوعة بنجاح');
+    }
 
     private function generateNewInvoiceNumber()
     {

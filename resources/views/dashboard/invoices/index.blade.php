@@ -9,13 +9,18 @@
             <div class="card h-100 custom-rtl">
                 <div class="card-header pb-0">
                     <h6>نظرة عامة على الفواتير</h6>
-                    <p class="text-sm">
-                        <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
-                        <span class="font-weight-bold">{{ $successfulPayments }}%</span> نجاح هذا الشهر
-                    </p>
+
+                    <!-- أزرار التبديل -->
+                    <div class="btn-group mt-2 d-flex gap-5 justify-content-evenly" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-outline-primary rounded-pill active" onclick="showPeriod('month')">الشهر
+                            الحالي</button>
+                        <button type="button" class="btn btn-outline-primary rounded-pill" onclick="showPeriod('week')">الأسبوع
+                            الحالي</button>              </div>
                 </div>
+
                 <div class="card-body p-3">
-                    <ul class="list-group p-0">
+                    <!-- إحصائيات الشهر -->
+                    <ul id="month-stats" class="list-group p-0">
                         <li class="list-group-item border-0 px-0">
                             <div class="d-flex justify-content-between">
                                 <span>إجمالي الفواتير</span>
@@ -36,15 +41,48 @@
                         </li>
                         <li class="list-group-item border-0 px-0">
                             <div class="d-flex justify-content-between">
-                                <span>الفواتير الفاشلة أو  المعلقة</span>
+                                <span>الفواتير الفاشلة أو المعلقة</span>
                                 <span class="text-danger font-weight-bold">{{ $failedPayments }}</span>
                             </div>
                         </li>
                         <li class="list-group-item border-0 px-0">
                             <div class="d-flex justify-content-between">
                                 <span>إجمالي المدفوعات</span>
-                                <span class="text-dark font-weight-bold">{{ number_format($totalPaidAmount, 2)
-                                    }} SAR</span>
+                                <span class="text-dark font-weight-bold">{{ number_format($totalPaidAmount, 2) }} SAR</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- إحصائيات الأسبوع -->
+                    <ul id="week-stats" class="list-group p-0 d-none">
+                        <li class="list-group-item border-0 px-0">
+                            <div class="d-flex justify-content-between">
+                                <span>إجمالي الفواتير</span>
+                                <span class="text-dark font-weight-bold">{{ $totalInvoicesByWeek }}</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item border-0 px-0">
+                            <div class="d-flex justify-content-between">
+                                <span>إجمالي المبالغ</span>
+                                <span class="text-dark font-weight-bold">{{ number_format($totalAmountByWeek, 2) }} SAR</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item border-0 px-0">
+                            <div class="d-flex justify-content-between">
+                                <span>الفواتير الناجحة</span>
+                                <span class="text-success font-weight-bold">{{ $successfulPaymentsByWeek }}</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item border-0 px-0">
+                            <div class="d-flex justify-content-between">
+                                <span>الفواتير الفاشلة أو المعلقة</span>
+                                <span class="text-danger font-weight-bold">{{ $failedPaymentsByWeek }}</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item border-0 px-0">
+                            <div class="d-flex justify-content-between">
+                                <span>إجمالي المدفوعات</span>
+                                <span class="text-dark font-weight-bold">{{ number_format($totalPaidAmountByWeek, 2) }} SAR</span>
                             </div>
                         </li>
                     </ul>
@@ -176,13 +214,31 @@
                                         <p class="text-sm font-weight-bold mb-0">{{ number_format($invoice->amount, 2)
                                             }} SAR</p>
                                     </td>
-                                    <td >
-                                        <span
-                                            class="badge badge-sm {{ $invoice->status == 1 ? 'bg-gradient-success' : ($invoice->status == 0 ? 'bg-gradient-warning' : 'bg-gradient-danger') }}">
-                                            {{ $invoice->status == 1 ? 'مدفوعة' : ($invoice->status == 0 ? 'معلقة' :
-                                            'فاشلة') }}
-                                        </span>
-                                    </td>
+                                    <td>
+                                        <span class="badge badge-sm
+                                                                                @if ($invoice->status == 1)
+                                                                                    @if (!$invoice->transaction_number)
+                                                                                        bg-gradient-info
+                                                                                    @else
+                                                                                        bg-gradient-success
+                                                                                    @endif
+                                                                                @elseif ($invoice->status == 0)
+                                                                                    bg-gradient-warning
+                                                                                @else
+                                                                                    bg-gradient-danger
+                                                                                @endif">
+                                            @if ($invoice->status == 1)
+                                            @if (!$invoice->transaction_number)
+                                            مدفوعة (تحويل)
+                                            @else
+                                            مدفوعة
+                                            @endif
+                                            @elseif ($invoice->status == 0)
+                                            معلقة
+                                            @else
+                                            فاشلة
+                                            @endif
+                                        </span>                               </td>
                                     <td class="align-middle text-center">
                                         <span class="text-secondary text-xs font-weight-bold">{{
                                             $invoice->created_at->format('d M Y') }}</span>
@@ -281,6 +337,19 @@
                                                                 </form>
                                                             </li>
                                                             <li class="list-group-item border-0">
+                                                                @if ($invoice->status != 1)
+                                                                <form action="{{ route('dashboard.invoices.markPaid', $invoice->id) }}" method="POST" style="display:inline;">
+                                                                    @csrf
+                                                                    <button type="submit" class="btn btn-sm btn-info d-flex align-items-center p-2"
+                                                                        onclick="return confirm('هل أنت متأكد من تعليم هذه الفاتورة كمدفوعة؟')">
+                                                                        <i class="material-symbols-rounded opacity-5 mr-2" style="font-size: 1.2rem;">check_circle</i>
+                                                                        تعليم كمدفوعة
+                                                                    </button>
+                                                                </form>
+                                                                @else
+                                                                <span class="badge bg-success">مدفوعة مسبقًا</span>
+                                                                @endif                                                       </li>
+                                                            <li class="list-group-item border-0">
                                                                 <a href="{{ route('dashboard.invoices.replicate', $invoice->id) }}"
                                                                     class="btn btn-sm btn-success d-flex align-items-center p-2">
                                                                     <i class="material-symbols-rounded opacity-5 mr-2" style="font-size: 1.2rem;">file_copy</i>
@@ -327,6 +396,25 @@
         });
     });
 
+    function showPeriod(period) {
+    // إخفاء جميع الأقسام
+    document.getElementById('month-stats').classList.add('d-none');
+    document.getElementById('week-stats').classList.add('d-none');
+
+    // إزالة كلاس 'active' من جميع الأزرار
+    document.querySelectorAll('.btn-group button').forEach(btn => {
+    btn.classList.remove('active');
+    });
+
+    // عرض القسم المطلوب وإضافة كلاس 'active' للزر المقابل
+    if (period === 'month') {
+    document.getElementById('month-stats').classList.remove('d-none');
+    document.querySelector('.btn-group button:nth-child(1)').classList.add('active');
+    } else if (period === 'week') {
+    document.getElementById('week-stats').classList.remove('d-none');
+    document.querySelector('.btn-group button:nth-child(2)').classList.add('active');
+    }
+    }
 
 </script>
 @endsection

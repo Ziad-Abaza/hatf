@@ -173,6 +173,9 @@ Route::middleware(['auth:admin', 'optimizeImages'])->name('dashboard.')->group(f
     Route::get('settings/meta', [SettingsController::class, 'index'])->name('settings.index');
     Route::put('settings/meta', [SettingsController::class, 'update'])->name('settings.update');
 
+    // invoices
+    Route::post('/invoices/{id}/mark-paid', [InvoiceController::class, 'markAsPaid'])->name('invoices.markPaid');
+
     Route::get('invoices/replicate/{id}', [InvoiceController::class, 'replicateInvoice'])
         ->name('invoices.replicate');
 
