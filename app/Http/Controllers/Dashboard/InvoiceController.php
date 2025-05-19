@@ -43,8 +43,8 @@ class InvoiceController extends Controller
 
         $successfulPayments = (clone $baseQuery)->where('status', '1')->count();
         $successfulPaymentsByWeek = (clone $baseQueryByWeek)->where('status', '1')->count();
-        $failedPayments = Payment::whereBetween('created_at', [$startDate, $endDate])->where('status', '0')->count();
-        $failedPaymentsByWeek = Payment::whereBetween('created_at', [$startDateFirstWeek, $endDateForWeek])->where('status', '0')->count();
+        $failedPayments = Payment::whereBetween('created_at', [$startDate, $endDate])->where('status', '!=', '1')->count();
+        $failedPaymentsByWeek = Payment::whereBetween('created_at', [$startDateFirstWeek, $endDateForWeek])->where('status', '!=','1')->count();
         $totalPaidAmount = (clone $baseQuery)->where('status', '1')->sum('amount');
         $totalPaidAmountByWeek = (clone $baseQueryByWeek)->where('status', '1')->sum('amount');
 
