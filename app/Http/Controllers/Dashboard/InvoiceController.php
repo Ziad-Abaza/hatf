@@ -16,25 +16,26 @@ class InvoiceController extends Controller
     /**
      * Display a listing of the resource.
      */
-
     public function index(Request $request)
     {
         $startDate = $request->query('start_date');
         $endDate = $request->query('end_date');
+
+        // تعريف المتغيرات مسبقًا
+        $startDateFirstWeek = Carbon::now()->startOfWeek();
+        $endDateForWeek = Carbon::now()->endOfDay();
 
         if ($startDate && $endDate) {
             $startDate = Carbon::parse($startDate);
             $endDate = Carbon::parse($endDate)->endOfDay();
         } else {
             $startDate = Carbon::now()->startOfMonth();
-            $startDateFirstWeek = Carbon::now()->startOfWeek();
             $endDate = Carbon::now()->endOfDay();
         }
 
+        // الآن يتم استخدام المتغيرات بشكل آمن
         $baseQuery = Payment::whereBetween('created_at', [$startDate, $endDate]);
-        $baseQueryByWeek = Payment::whereBetween('created_at', [$startDateFirstWeek, $endDate]);
-        $allInvoices = Payment::all();
-
+        $baseQueryByWeek = Payment::whereBetween('created_at', [$startDateFirstWeek, $endDateForWeek]);
 
         $totalInvoices = $baseQuery->count();
         $totalInvoicesByWeek = $baseQueryByWeek->count();
@@ -48,8 +49,7 @@ class InvoiceController extends Controller
         $totalPaidAmount = (clone $baseQuery)->where('status', '1')->sum('amount');
         $totalPaidAmountByWeek = (clone $baseQueryByWeek)->where('status', '1')->sum('amount');
 
-        $latestInvoices = Payment::orderBy('created_at', 'desc')
-            ->paginate(10);
+        $latestInvoices = Payment::orderBy('created_at', 'desc')->paginate(10);
 
         return view('dashboard.invoices.index', compact(
             'totalInvoices',
