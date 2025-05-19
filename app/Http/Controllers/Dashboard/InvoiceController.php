@@ -33,14 +33,13 @@ class InvoiceController extends Controller
             $endDate = Carbon::now()->endOfDay();
         }
 
-        // الآن يتم استخدام المتغيرات بشكل آمن
         $baseQuery = Payment::whereBetween('created_at', [$startDate, $endDate]);
         $baseQueryByWeek = Payment::whereBetween('created_at', [$startDateFirstWeek, $endDateForWeek]);
 
         $totalInvoices = $baseQuery->count();
         $totalInvoicesByWeek = $baseQueryByWeek->count();
-        $totalAmount = $baseQuery->sum('amount');
-        $totalAmountByWeek = $baseQueryByWeek->sum('amount');
+        $totalAmount = $baseQuery->where('status', '1')->sum('amount');
+        $totalAmountByWeek = $baseQueryByWeek->where('status', '1')->sum('amount');
 
         $successfulPayments = (clone $baseQuery)->where('status', '1')->count();
         $successfulPaymentsByWeek = (clone $baseQueryByWeek)->where('status', '1')->count();
