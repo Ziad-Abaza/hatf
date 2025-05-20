@@ -198,7 +198,7 @@
             <div class="row center">
 
                 @foreach ($features as $feature)
-                    <div class="col-lg-4 col-md-6 col-sm-12 py-3 center card-item">
+                    <div class="col-lg-4 col-md-6 col-sm-12 py-3 center card-item hidden-item">
                         <div class="bg center">
                             <div class="card py-3">
                                 <div class="dev w-100">
@@ -348,3 +348,14 @@
     </div>
     <!-- end contact -->
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('btn-hiden');
+        const hiddenItems = document.querySelectorAll('.hidden-item');
+
+        btn.addEventListener('click', function () {
+            hiddenItems.forEach(el => el.style.display = 'flex'); // أو 'block' حسب التصميم
+            btn.style.display = 'none'; // إخفاء الزر بعد العرض
+        });
+    });
+</script>

@@ -31,6 +31,7 @@ class HeaderController extends Controller
     public function update(UpdateRequest $request, Header $header)
     {
         $header->update($request->validated());
+        
         return redirect()->route('dashboard.our-team.index');
     }
 }

@@ -16,7 +16,7 @@ class FeaturesController extends Controller
     public function index(Service $service)
     {
         return view('dashboard.features.index', [
-            'features' => features::where('service_id', $service->id)->paginate(10),
+            'features' => features::all(),
         ]);
     }
 
@@ -36,7 +36,6 @@ class FeaturesController extends Controller
     {
         $features = features::create($request->validated());
 
-        // التعامل مع تحميل الصورة باستخدام مكتبة Spatie Media Library
         if ($request->hasFile('image')) {
             $features->addMedia($request->file('image'))->toMediaCollection('features');
         }
@@ -78,7 +77,7 @@ class FeaturesController extends Controller
     {
         $feature->clearMediaCollection('features'); // حذف الصور
         $feature->delete();
-        
+
         return redirect()->route('dashboard.service.index')
             ->with('success', 'تم حذف السمة بنجاح.');
     }
