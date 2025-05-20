@@ -15,7 +15,7 @@ $id = $id ?? $name;
     <label for="{{ $id }}" class="form-label">{{ $label }}</label>
     @endif
     <textarea id="{{ $id }}" name="{{ $name }}" class="form-control text-editor @error($name) is-invalid @enderror"
-        rows="10">{{ old($name, $value) }}</textarea>
+        rows="10">{!! old($name, $value) !!}</textarea>
 
     @error($name)
     <div class="invalid-feedback">{{ $message }}</div>
