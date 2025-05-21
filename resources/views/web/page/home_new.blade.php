@@ -51,9 +51,9 @@
                         <div class="center">
                             <div class="card py-3">
                                 <!-- card-header -->
-                                <div class="d-flex justify-content-center align-items-center py-3">
+                                <div class="d-flex justify-content-evenly align-items-center py-3">
                                     <div class="d-flex flex-column align-items-end me-2 ">
-                                        <h5>{{ $service->name }}</h5>
+                                        <h5 class="text-center ">{{ $service->name }}</h5>
                                         <span></span>
                                     </div>
                                     {{-- <img src="{{ asset('front/new_design/src/img/icon-card-home-service-3.svg') }}"
