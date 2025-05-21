@@ -45,11 +45,11 @@
                     </h4>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-evenly">
                 @foreach ($services as $service)
-                    <div class="col-md-6 col-12 col-lg-4 py-3 center bg-w">
-                        <div class="center">
-                            <div class="card py-3">
+                    <div class="col-md-6 col-12 col-lg-4 m-0 py-3 center bg-w d-flex">
+                        {{-- <div class="center"> --}}
+                            <div class="card py-3 h-100 w-100 d-flex flex-column">
                                 <!-- card-header -->
                                 <div class="d-flex justify-content-evenly align-items-center py-3">
                                     <div class="d-flex flex-column align-items-end me-2 ">
@@ -80,7 +80,7 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        {{-- </div> --}}
                     </div>
                 @endforeach
 
