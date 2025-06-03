@@ -48,7 +48,7 @@ class MarketeerController extends Controller
      */
     public function edit(Marketeer $marketeer)
     {
-        return view('dashboard.Marketeer.edit', compact('marketeer'));
+        return view('dashboard.marketeer.edit', compact('marketeer'));
     }
 
     /**
@@ -71,7 +71,7 @@ class MarketeerController extends Controller
 
     public function showCommissions(Marketeer $marketeer)
     {
-        // get all commissions for the marketeer  
+        // get all commissions for the marketeer
         $commissions = $marketeer->commissions()
             ->where('paid', false)
             ->with('payment')
