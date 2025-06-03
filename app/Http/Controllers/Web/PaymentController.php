@@ -12,6 +12,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Services\Payment\ClickPayService;
+use App\Services\CommissionService;
+
 
 class PaymentController extends Controller
 {
@@ -166,6 +168,12 @@ class PaymentController extends Controller
                     'updated_at' => Carbon::now(),
 
                 ]);
+                //  if status payment update to 1
+                if($payment->wasChanged() && $payment->status == 1) {
+                    // Calculate commission
+                    $commissionService = new CommissionService();
+                    $commissionService->calculateCommission($payment);
+                }
 
                 Log::channel('return_url')->info('Successful payment', [
                     'time' => now(),
@@ -313,6 +321,7 @@ class PaymentController extends Controller
 
         $respStatus = request('respStatus');
 
+
         if ($respStatus == "A") {
             // Log successful payment
             Log::channel('return_url')->info('Successful  callback_url callback_url payment', [
@@ -323,15 +332,25 @@ class PaymentController extends Controller
 
             $data = ClickPayService::chickTransaction(request('tran_ref'));
             if ($data->success == true) {
-                Payment::where('uniqid', request('cartId'))->update([
-                    'status' => '1',
-                    'transaction_number' => request('tran_ref'),
-                    'address' => $data->customer_details->city,
-                    'city' => $data->customer_details->city,
-                    'country' => $data->customer_details->country,
-                    'state' => $data->customer_details->state,
-                    'ip_address' => $data->customer_details->ip,
-                ]);
+                $payment = Payment::where('uniqid', request('cartId'))->first();
+                if ($payment) {
+                    $payment->update([
+                        'status' => '1',
+                        'transaction_number' => request('tran_ref'),
+                        'address' => $data->customer_details->city,
+                        'city' => $data->customer_details->city,
+                        'country' => $data->customer_details->country,
+                        'state' => $data->customer_details->state,
+                        'ip_address' => $data->customer_details->ip,
+                    ]);
+                }
+            }
+
+            // check if payment update was successful
+            if ($payment->wasChanged() && $payment->status == 1) {
+                // Calculate commission
+                $commissionService = new CommissionService();
+                $commissionService->calculateCommission($payment);
             }
 
             return redirect()->route('successPayment');

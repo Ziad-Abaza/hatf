@@ -32,7 +32,7 @@ class StorePaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:2000',
+            'name' => 'nullable|string|max:2000',
             'email' => 'required|email|max:2000',
             'phone' => [
                 'required',
@@ -42,6 +42,7 @@ class StorePaymentRequest extends FormRequest
             'expenses' => 'required|numeric|min:0',
             'service' => 'required|string',
             'invoice_number' => 'required|numeric',
+            'customer_id' => 'required|numeric|exists:customers,id',
         ];
     }
 }

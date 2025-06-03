@@ -23,6 +23,7 @@
                         <th>رمز المسوّق</th>
                         <th>عدد العملاء</th>
                         <th>رابط المسوّق</th>
+                        <th>نسبة المسوق</th>
                         <th>العمليات</th>
                     </tr>
                 </thead>
@@ -42,6 +43,8 @@
                             </a>
                         </td>
                         <td>
+                            <span class="badge bg-label-primary text-primary">{{ $marketeer->commission_rate }}%</span>
+                        <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 hide-arrow" data-bs-toggle="dropdown">
                                     <span class="material-symbols-rounded fs-6">more_vert</span>
@@ -53,6 +56,8 @@
                                     <a class="dropdown-item" href="{{ route('dashboard.customer.create') }}">
                                         <span class="material-symbols-rounded fs-6 me-1">add</span> إضافة عميل
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('dashboard.marketeer.commissions', $marketeer->id) }}">
+                                        <span class="material-symbols-rounded fs-6 me-1">visibility</span> العمولة المستحقة                                </a>
                                     <a class="dropdown-item" href="{{ route('dashboard.marketeer.edit', $marketeer->id) }}">
                                         <span class="material-symbols-rounded fs-6 me-1">edit</span> تعديل
                                     </a>

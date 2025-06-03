@@ -89,12 +89,27 @@
                             <textarea name="desc" id="desc" rows="3"
                                 class="custom-input form-control text-end @error('desc') is-invalid @enderror"
                                 placeholder="اكتب وصفًا للخدمة">{{ old('desc') }}</textarea>
-                            @error('desc')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                                @error('desc')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
+                        <!-- marketeer -->
+                        <div class="col-md-12">
+                            <label for="service" class="form-label">اختر المسوق</label>
+                            <div class="input-group">
+                                <select name="marketeer_id" required
+                                    class="custom-input form-control text-end @error('marketeer_id') is-invalid @enderror">
+                                    @foreach($marketeers as $marketeer)
+                                    <option value="{{ $marketeer->id }}">{{ $marketeer->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror      </div>
+                            </div>
                 </div>
+                
 
                 <!-- Submit Button -->
                 <div class="row mt-4">

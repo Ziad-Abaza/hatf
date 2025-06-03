@@ -41,12 +41,14 @@
                     <!-- معلومات العميل -->
                     <div class="row mb-4">
                         <div class="col-md-6">
-                            <label for="name" class="form-label">الاسم الكامل</label>
+                            <label for="name" class="form-label">اختر العميل</label>
                             <div class="input-group">
-                                <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-user"></i></span>
-                                <input type="text" id="name" name="name"
-                                    class="custom-input form-control text-start @error('name') is-invalid @enderror"
-                                    placeholder="أدخل الاسم الكامل" value="{{ old('name') }}" required>
+                                {{-- <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-user"></i></span> --}}
+                                <select name="customer_id" required class="custom-input form-control text-end @error('customer_id') is-invalid @enderror">
+                                    @foreach($customers as $customer)
+                                    <option  value="{{ $customer->id }}">{{ $customer->name }}</option>
+                                    @endforeach
+                                </select>
                                 @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

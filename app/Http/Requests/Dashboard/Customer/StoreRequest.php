@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'email'   => 'required|string|email',
             'service' => 'required|string',
             'desc'    => 'required|string',
+            'marketeer_id' => 'nullable|exists:marketeers,id',
         ];
     }
 }

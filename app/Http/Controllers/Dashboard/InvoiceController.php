@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Dashboard;
 
 
 use App\Models\Payment;
+use App\Models\Customer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Services\CommissionService;
 use Carbon\Carbon;
 
 class InvoiceController extends Controller
@@ -21,7 +23,6 @@ class InvoiceController extends Controller
         $startDate = $request->query('start_date');
         $endDate = $request->query('end_date');
 
-        // تعريف المتغيرات مسبقًا
         $startDateFirstWeek = Carbon::now()->startOfWeek();
         $endDateForWeek = Carbon::now()->endOfDay();
 
@@ -82,8 +83,8 @@ class InvoiceController extends Controller
         $nextInvoice = str_pad($countToday + 1, 3, '0', STR_PAD_LEFT);
 
         $invoiceNumber = $prefix . $nextInvoice;
-
-        return view('dashboard.invoices.create', ['invoiceNumber' => $invoiceNumber]);
+        $customers = Customer::all();
+        return view('dashboard.invoices.create', ['invoiceNumber' => $invoiceNumber, 'customers' => $customers]);
     }
 
 
@@ -93,16 +94,17 @@ class InvoiceController extends Controller
     public function store(StorePaymentRequest $request)
     {
         $uniqid = uniqid();
+        $costumer = Customer::find($request->customer_id);
         $request = [
             'uniqid' => $uniqid,
             'amount' => $request->amount,
             'expenses' => $request->expenses,
-            'name' => $request->name,
+            'name' => $costumer->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'service' => $request->service,
             'invoice_number' => $request->invoice_number,
-
+            'customer_id' => $request->customer_id,
         ];
         Payment::create($request);
 
@@ -115,7 +117,8 @@ class InvoiceController extends Controller
     public function edit($payment)
     {
         $payment = Payment::findOrFail($payment);
-        return view('dashboard.invoices.edit', ['invoice' => $payment]);
+        $customers = Customer::all();
+        return view('dashboard.invoices.edit', ['invoice' => $payment, 'customers' => $customers]);
     }
 
     /**
@@ -123,8 +126,16 @@ class InvoiceController extends Controller
      */
     public function update(UpdatePaymentRequest $request, $payment)
     {
-        Payment::where('id', $payment)->update($request->validated());
-        return redirect()->route('dashboard.invoices.index')->with('success', 'تم  تعديل فاتورة بنجاح');
+        $data = $request->validated();
+
+        if ($request->has('customer_id')) {
+            $customer = Customer::find($request->customer_id);
+            if ($customer) {
+                $data['name'] = $customer->name;
+            }
+        }
+        Payment::where('id', $payment)->update($data);
+        return redirect()->route('dashboard.invoices.index')->with('success', 'تم تعديل الفاتورة بنجاح');
     }
 
     /**
@@ -173,6 +184,14 @@ class InvoiceController extends Controller
             'status' => '1',
             'transaction_number' => null,
         ]);
+        
+        // check if payment update was successful
+        if ($payment->wasChanged()) {
+            // Calculate commission
+            $commissionService = new CommissionService();
+            $commissionService->calculateCommission($payment);
+        }
+
         Log::info('Invoice marked as paid', [
             'invoice_id' => $payment->id,
             'transaction_number' => null,

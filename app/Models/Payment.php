@@ -31,9 +31,18 @@ class Payment extends Model
         'zip',
         'ip_address',
         'failed_attempts',
-        'expenses'
-
+        'expenses',
+        'customer_id'
     ];
 
 
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function commission()
+    {
+        return $this->hasOne(Commission::class);
+    }
 }

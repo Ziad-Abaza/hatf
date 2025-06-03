@@ -24,6 +24,7 @@ class UpdateRequest extends FormRequest
         return [
             'name'  => 'required|string|max:2000',
             'phone' => 'required|numeric',
+            'commission_rate' => 'sometimes|required|integer|min:0|max:100',
         ];
     }
 }

@@ -39,9 +39,11 @@
                             <label for="name" class="form-label">الاسم الكامل</label>
                             <div class="input-group">
                                 <span class="input-group-text  h-100 fs-6 px-3"><i class="fas fa-user"></i></span>
-                                <input type="text" id="name" name="name"
-                                    class="custom-input form-control text-start @error('name') is-invalid @enderror"
-                                    placeholder="أدخل الاسم الكامل" value="{{ old('name', $invoice->name) }}" required>
+                                <select name="customer_id" required>
+                                    @foreach($customers as $customer)
+                                    <option value="{{ $customer->id }}" {{ $customer->id == $invoice->customer_id ? 'selected' : '' }}>{{ $customer->name }}</option>
+                                    @endforeach
+                                </select>
                                 @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

@@ -33,7 +33,10 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('dashboard.customer.create');
+        $marketeers = Marketeer::all();
+        return view('dashboard.customer.create', [
+            'marketeers' => $marketeers,
+        ]);
     }
 
     /**

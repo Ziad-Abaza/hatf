@@ -14,10 +14,21 @@ class Marketeer extends Model
         'name',
         'phone',
         'code',
+        'commission_rate'
     ];
 
     public function customers(): HasMany
     {
         return $this->hasMany(Customer::class);
+    }
+
+    public function commissions()
+    {
+        return $this->hasMany(Commission::class);
+    }
+
+    public function getTotalCommissionAttribute()
+    {
+        return $this->commissions()->sum('amount');
     }
 }

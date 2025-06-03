@@ -142,6 +142,9 @@ Route::middleware(['auth:admin', 'optimizeImages'])->name('dashboard.')->group(f
     Route::get('marketeers/{marketeer}/edit', [MarketeerController::class, 'edit'])->name('marketeer.edit');
     Route::put('marketeers/{marketeer}/update', [MarketeerController::class, 'update'])->name('marketeer.update');
     Route::get('marketeers/{marketeer}/delete', [MarketeerController::class, 'destroy'])->name('marketeer.delete');
+    //  Marketeer Commissions
+    Route::get('marketeers/{marketeer}/commissions', [MarketeerController::class, 'showCommissions'])->name('marketeer.commissions');
+    Route::post('marketeers/{marketeer}/settle-commissions', [MarketeerController::class, 'settleCommissions'])->name('marketeer.settle-commissions');
 
     // customers
     Route::get('customers', [CustomerController::class, 'index'])->name('customer.index');

@@ -53,6 +53,22 @@
                     </div>
                 </div>
 
+                <!-- Commission Rate -->
+                <div class="col-md-6">
+                    <label for="commission_rate" class="form-label">نسبة العمولة (%)</label>
+                    <div class="input-group">
+                        <span class="input-group-text h-100 fs-6 px-3"><i class="fas fa-percent"></i></span>
+                        <input type="number" name="commission_rate" id="commission_rate"
+                            class="custom-input form-control text-start @error('commission_rate') is-invalid @enderror"
+                            placeholder="أدخل نسبة العمولة (مثال: 10)" min="0" max="100" value="{{ old('commission_rate', 0) }}"
+                            required />
+                        @error('commission_rate')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <small class="form-text text-muted">نسبة العمولة يجب أن تكون بين 0 و 100</small>
+                </div>
+
                 <!-- Submit Button -->
                 <div class="row mt-4">
                     <div class="col-12 d-flex justify-content-start">
