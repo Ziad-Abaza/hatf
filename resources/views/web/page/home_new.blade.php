@@ -3,6 +3,7 @@
     هتف - Hatf
 @endsection
 
+
 @section('content')
     <!-- start hero-home -->
     <div id="تعرف_علينا" class="hero-home">
@@ -45,13 +46,14 @@
                     </h4>
                 </div>
             </div>
-            <div class="row justify-content-evenly">
+            <div class="container d-flex justify-content-center align-items-center">
+            <div class="row justify-content-evenly w-75">
                 @foreach ($services as $service)
                     <div class="col-md-6 col-12 col-lg-4 m-0 py-3 center bg-w d-flex">
                         {{-- <div class="center"> --}}
                             <div class="card py-3 h-100 w-100 d-flex flex-column">
                                 <!-- card-header -->
-                                <div class="d-flex justify-content-evenly align-items-center py-3">
+                                <div class="d-flex justify-content-center align-items-center py-3">
                                     <div class="d-flex flex-column align-items-end me-2 ">
                                         <h5 class="text-center ">{{ $service->name }}</h5>
                                         <span></span>
@@ -98,7 +100,7 @@
                             </div>
                             <!-- card-body -->
                             <div class="card-body text-center py-3">
-                                <p class="card-text">
+                                <p class="card-text" style="text-align: justify;">
                                     نعزز هوية علامتك التـجارية عـبـر محتوي بصري مميز مـن جرافيـك وموشن و جرافيك وتعليق
                                     صوتي ومونتـاج لتـحقيق تفاعـل أكبـر.
                                 </p>
@@ -147,6 +149,7 @@
                     </div>
                 </div> --}}
             </div>
+            </div> 
         </div>
     </div>
     <!-- end-home-services -->

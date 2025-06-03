@@ -1,732 +1,854 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-        <loc>http://127.0.0.1:8000</loc>
-    
+        <loc>https://hatf.sa</loc>
+            <changefreq>daily</changefreq>
+        <priority>1.0</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns</loc>
-    
+        <loc>https://hatf.sa/blogns</loc>
+            <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/8</loc>
-        <lastmod>2025-05-18T16:56:34+00:00</lastmod>
+        <lastmod>2025-05-20T22:46:20+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/9</loc>
-        <lastmod>2025-05-18T16:57:34+00:00</lastmod>
+        <lastmod>2025-05-20T21:54:40+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/10</loc>
-        <lastmod>2025-05-18T16:58:10+00:00</lastmod>
+        <lastmod>2025-05-20T21:56:55+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/11</loc>
-        <lastmod>2025-05-18T16:58:22+00:00</lastmod>
+        <lastmod>2025-05-20T22:01:15+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/12</loc>
-        <lastmod>2025-05-18T16:58:34+00:00</lastmod>
+        <lastmod>2025-05-20T22:11:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/14</loc>
-        <lastmod>2025-05-18T16:58:47+00:00</lastmod>
+        <lastmod>2025-05-20T22:10:26+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/15</loc>
-        <lastmod>2025-05-18T16:59:15+00:00</lastmod>
+        <lastmod>2025-05-20T22:13:56+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/16</loc>
-        <lastmod>2025-05-18T16:59:34+00:00</lastmod>
+        <lastmod>2025-05-20T22:16:29+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/17</loc>
-        <lastmod>2025-05-18T17:00:03+00:00</lastmod>
+        <lastmod>2025-05-20T22:22:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/18</loc>
-        <lastmod>2025-05-18T17:00:20+00:00</lastmod>
+        <lastmod>2025-05-20T22:27:34+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/19</loc>
-        <lastmod>2025-05-18T17:02:40+00:00</lastmod>
+        <lastmod>2025-05-20T22:42:41+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/20</loc>
-        <lastmod>2025-05-18T17:02:46+00:00</lastmod>
+        <lastmod>2025-05-20T22:50:11+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/25</loc>
-        <lastmod>2025-05-18T17:02:52+00:00</lastmod>
+        <lastmod>2025-05-20T23:00:56+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/26</loc>
-        <lastmod>2025-05-18T17:02:58+00:00</lastmod>
+        <lastmod>2025-05-20T23:05:20+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/27</loc>
-        <lastmod>2025-05-18T17:03:08+00:00</lastmod>
+        <lastmod>2025-05-20T23:09:14+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/28</loc>
-        <lastmod>2025-05-18T17:03:14+00:00</lastmod>
+        <lastmod>2025-05-20T23:25:43+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/29</loc>
-        <lastmod>2025-05-18T17:03:20+00:00</lastmod>
+        <lastmod>2025-05-20T23:28:24+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/30</loc>
-        <lastmod>2025-05-18T17:03:26+00:00</lastmod>
+        <lastmod>2025-05-20T23:31:14+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/31</loc>
-        <lastmod>2025-05-18T17:03:33+00:00</lastmod>
+        <lastmod>2025-05-20T23:36:33+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/32</loc>
-        <lastmod>2025-05-18T17:03:39+00:00</lastmod>
+        <lastmod>2025-05-20T23:44:58+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/33</loc>
-        <lastmod>2024-12-10T15:12:54+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/33</loc>
+        <lastmod>2024-12-10T13:12:54+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/36</loc>
-        <lastmod>2024-12-10T15:13:17+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/36</loc>
+        <lastmod>2024-12-10T13:13:17+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/37</loc>
-        <lastmod>2024-12-10T21:06:34+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/37</loc>
+        <lastmod>2024-12-10T19:06:34+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/38</loc>
-        <lastmod>2024-12-11T22:20:03+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/38</loc>
+        <lastmod>2024-12-11T20:20:03+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/39</loc>
-        <lastmod>2024-12-12T22:46:19+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/39</loc>
+        <lastmod>2024-12-12T20:46:19+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/41</loc>
-        <lastmod>2024-12-14T21:59:00+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/41</loc>
+        <lastmod>2024-12-14T19:59:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/42</loc>
-        <lastmod>2024-12-15T21:05:53+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/42</loc>
+        <lastmod>2024-12-15T19:05:53+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/43</loc>
-        <lastmod>2024-12-16T22:02:07+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/43</loc>
+        <lastmod>2024-12-16T20:02:07+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/44</loc>
-        <lastmod>2024-12-17T21:09:57+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/44</loc>
+        <lastmod>2024-12-17T19:09:57+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/45</loc>
-        <lastmod>2024-12-18T18:46:30+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/45</loc>
+        <lastmod>2024-12-18T16:46:30+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/46</loc>
-        <lastmod>2024-12-18T23:22:34+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/46</loc>
+        <lastmod>2024-12-18T21:22:34+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/47</loc>
-        <lastmod>2024-12-19T18:04:18+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/47</loc>
+        <lastmod>2024-12-19T16:04:18+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/48</loc>
-        <lastmod>2024-12-19T21:20:49+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/48</loc>
+        <lastmod>2024-12-19T19:20:49+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/49</loc>
-        <lastmod>2024-12-21T20:14:57+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/49</loc>
+        <lastmod>2024-12-21T18:14:57+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/50</loc>
-        <lastmod>2024-12-21T22:43:13+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/50</loc>
+        <lastmod>2024-12-21T20:43:13+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/52</loc>
-        <lastmod>2024-12-23T18:20:49+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/52</loc>
+        <lastmod>2024-12-23T16:20:49+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/53</loc>
-        <lastmod>2024-12-23T22:02:47+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/53</loc>
+        <lastmod>2024-12-23T20:02:47+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/54</loc>
-        <lastmod>2024-12-24T18:26:07+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/54</loc>
+        <lastmod>2024-12-24T16:26:07+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/55</loc>
-        <lastmod>2024-12-24T22:22:00+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/55</loc>
+        <lastmod>2024-12-24T20:22:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/56</loc>
-        <lastmod>2024-12-25T19:09:46+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/56</loc>
+        <lastmod>2024-12-25T17:09:46+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/57</loc>
-        <lastmod>2024-12-25T22:46:47+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/57</loc>
+        <lastmod>2024-12-25T20:46:47+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/58</loc>
-        <lastmod>2024-12-28T18:33:38+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/58</loc>
+        <lastmod>2024-12-28T16:33:38+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/59</loc>
-        <lastmod>2024-12-28T22:15:09+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/59</loc>
+        <lastmod>2024-12-28T20:15:09+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/60</loc>
-        <lastmod>2024-12-30T20:20:25+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/60</loc>
+        <lastmod>2024-12-30T18:20:25+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/61</loc>
-        <lastmod>2024-12-29T21:56:53+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/61</loc>
+        <lastmod>2024-12-29T19:56:53+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/62</loc>
-        <lastmod>2024-12-30T18:54:50+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/62</loc>
+        <lastmod>2024-12-30T16:54:50+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/63</loc>
-        <lastmod>2024-12-30T21:48:06+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/63</loc>
+        <lastmod>2024-12-30T19:48:06+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/64</loc>
-        <lastmod>2024-12-31T18:56:37+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/64</loc>
+        <lastmod>2024-12-31T16:56:37+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/65</loc>
-        <lastmod>2024-12-31T22:00:39+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/65</loc>
+        <lastmod>2024-12-31T20:00:39+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/66</loc>
-        <lastmod>2025-01-01T18:42:36+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/66</loc>
+        <lastmod>2025-01-01T16:42:36+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/67</loc>
-        <lastmod>2025-01-01T21:42:33+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/67</loc>
+        <lastmod>2025-01-01T19:42:33+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/68</loc>
-        <lastmod>2025-01-02T19:52:54+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/68</loc>
+        <lastmod>2025-01-02T17:52:54+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/69</loc>
-        <lastmod>2025-01-02T22:47:26+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/69</loc>
+        <lastmod>2025-01-02T20:47:26+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/70</loc>
-        <lastmod>2025-01-03T18:18:32+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/70</loc>
+        <lastmod>2025-01-03T16:18:32+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/72</loc>
-        <lastmod>2025-01-03T20:58:48+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/72</loc>
+        <lastmod>2025-01-03T18:58:48+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/73</loc>
-        <lastmod>2025-01-04T18:25:57+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/73</loc>
+        <lastmod>2025-01-04T16:25:57+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/74</loc>
-        <lastmod>2025-01-04T22:02:51+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/74</loc>
+        <lastmod>2025-01-04T20:02:51+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/75</loc>
-        <lastmod>2025-01-05T18:29:26+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/75</loc>
+        <lastmod>2025-01-05T16:29:26+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/76</loc>
-        <lastmod>2025-01-05T22:35:15+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/76</loc>
+        <lastmod>2025-01-05T20:35:15+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/77</loc>
-        <lastmod>2025-01-06T18:45:51+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/77</loc>
+        <lastmod>2025-01-06T16:45:51+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/78</loc>
-        <lastmod>2025-01-06T21:59:30+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/78</loc>
+        <lastmod>2025-01-06T19:59:30+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/79</loc>
-        <lastmod>2025-01-07T18:45:24+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/79</loc>
+        <lastmod>2025-01-07T16:45:24+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/80</loc>
-        <lastmod>2025-01-07T21:40:03+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/80</loc>
+        <lastmod>2025-01-07T19:40:03+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/81</loc>
-        <lastmod>2025-01-08T18:23:05+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/81</loc>
+        <lastmod>2025-01-08T16:23:05+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/82</loc>
-        <lastmod>2025-01-08T21:25:17+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/82</loc>
+        <lastmod>2025-01-08T19:25:17+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/83</loc>
-        <lastmod>2025-02-19T14:40:10+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/83</loc>
+        <lastmod>2025-02-19T12:40:10+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/84</loc>
-        <lastmod>2025-01-10T18:39:45+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/84</loc>
+        <lastmod>2025-01-10T16:39:45+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/85</loc>
-        <lastmod>2025-01-10T21:39:14+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/85</loc>
+        <lastmod>2025-01-10T19:39:14+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/86</loc>
-        <lastmod>2025-01-11T18:01:10+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/86</loc>
+        <lastmod>2025-01-11T16:01:10+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/87</loc>
-        <lastmod>2025-01-11T21:38:00+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/87</loc>
+        <lastmod>2025-01-11T19:38:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/88</loc>
-        <lastmod>2025-01-13T18:53:01+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/88</loc>
+        <lastmod>2025-01-13T16:53:01+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/89</loc>
-        <lastmod>2025-01-13T21:58:41+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/89</loc>
+        <lastmod>2025-01-13T19:58:41+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/91</loc>
-        <lastmod>2025-01-14T18:55:55+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/91</loc>
+        <lastmod>2025-01-14T16:55:55+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/92</loc>
-        <lastmod>2025-01-14T22:33:40+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/92</loc>
+        <lastmod>2025-01-14T20:33:40+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/93</loc>
-        <lastmod>2025-01-15T18:22:24+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/93</loc>
+        <lastmod>2025-01-15T16:22:24+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/94</loc>
-        <lastmod>2025-01-15T21:58:28+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/94</loc>
+        <lastmod>2025-01-15T19:58:28+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/95</loc>
-        <lastmod>2025-01-18T20:15:50+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/95</loc>
+        <lastmod>2025-01-18T18:15:50+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/96</loc>
-        <lastmod>2025-01-19T18:36:24+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/96</loc>
+        <lastmod>2025-01-19T16:36:24+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/97</loc>
-        <lastmod>2025-01-19T21:36:15+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/97</loc>
+        <lastmod>2025-01-19T19:36:15+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/98</loc>
-        <lastmod>2025-01-20T18:17:57+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/98</loc>
+        <lastmod>2025-01-20T16:17:57+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/99</loc>
-        <lastmod>2025-01-20T21:26:51+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/99</loc>
+        <lastmod>2025-01-20T19:26:51+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/100</loc>
-        <lastmod>2025-01-21T18:17:57+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/100</loc>
+        <lastmod>2025-01-21T16:17:57+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/101</loc>
-        <lastmod>2025-01-21T21:33:11+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/101</loc>
+        <lastmod>2025-01-21T19:33:11+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/102</loc>
-        <lastmod>2025-01-22T18:16:55+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/102</loc>
+        <lastmod>2025-01-22T16:16:55+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/103</loc>
-        <lastmod>2025-01-22T21:21:41+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/103</loc>
+        <lastmod>2025-01-22T19:21:41+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/104</loc>
-        <lastmod>2025-03-04T15:07:15+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/104</loc>
+        <lastmod>2025-03-04T13:07:15+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/105</loc>
-        <lastmod>2025-01-23T21:14:50+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/105</loc>
+        <lastmod>2025-01-23T19:14:50+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/106</loc>
-        <lastmod>2025-03-04T15:15:55+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/106</loc>
+        <lastmod>2025-03-04T13:15:55+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/107</loc>
-        <lastmod>2025-01-25T17:57:13+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/107</loc>
+        <lastmod>2025-01-25T15:57:13+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/108</loc>
-        <lastmod>2025-01-25T21:26:01+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/108</loc>
+        <lastmod>2025-01-25T19:26:01+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/109</loc>
-        <lastmod>2025-01-26T18:02:39+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/109</loc>
+        <lastmod>2025-01-26T16:02:39+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/110</loc>
-        <lastmod>2025-01-26T20:06:49+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/110</loc>
+        <lastmod>2025-01-26T18:06:49+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/111</loc>
-        <lastmod>2025-01-27T18:33:39+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/111</loc>
+        <lastmod>2025-01-27T16:33:39+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/112</loc>
-        <lastmod>2025-01-27T21:30:35+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/112</loc>
+        <lastmod>2025-01-27T19:30:35+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/113</loc>
-        <lastmod>2025-01-29T18:33:34+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/113</loc>
+        <lastmod>2025-01-29T16:33:34+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/114</loc>
-        <lastmod>2025-01-29T21:35:10+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/114</loc>
+        <lastmod>2025-01-29T19:35:10+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/115</loc>
-        <lastmod>2025-01-30T18:34:06+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/115</loc>
+        <lastmod>2025-01-30T16:34:06+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/116</loc>
-        <lastmod>2025-01-30T21:22:43+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/116</loc>
+        <lastmod>2025-01-30T19:22:43+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/117</loc>
-        <lastmod>2025-01-31T18:24:07+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/117</loc>
+        <lastmod>2025-01-31T16:24:07+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/118</loc>
-        <lastmod>2025-01-31T21:24:13+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/118</loc>
+        <lastmod>2025-01-31T19:24:13+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/119</loc>
-        <lastmod>2025-02-01T18:59:09+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/119</loc>
+        <lastmod>2025-02-01T16:59:09+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/120</loc>
-        <lastmod>2025-02-01T21:16:40+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/120</loc>
+        <lastmod>2025-02-01T19:16:40+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/121</loc>
-        <lastmod>2025-02-02T18:10:33+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/121</loc>
+        <lastmod>2025-02-02T16:10:33+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/122</loc>
-        <lastmod>2025-02-02T20:17:03+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/122</loc>
+        <lastmod>2025-02-02T18:17:03+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/123</loc>
-        <lastmod>2025-02-04T19:12:01+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/123</loc>
+        <lastmod>2025-02-04T17:12:01+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/124</loc>
-        <lastmod>2025-02-04T21:12:18+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/124</loc>
+        <lastmod>2025-02-04T19:12:18+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/126</loc>
-        <lastmod>2025-02-05T18:09:05+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/126</loc>
+        <lastmod>2025-02-05T16:09:05+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/127</loc>
-        <lastmod>2025-02-05T20:44:18+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/127</loc>
+        <lastmod>2025-02-05T18:44:18+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/129</loc>
-        <lastmod>2025-02-06T18:48:12+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/129</loc>
+        <lastmod>2025-02-06T16:48:12+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/130</loc>
-        <lastmod>2025-02-06T21:34:44+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/130</loc>
+        <lastmod>2025-02-06T19:34:44+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/131</loc>
-        <lastmod>2025-02-07T18:20:00+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/131</loc>
+        <lastmod>2025-02-07T16:20:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/132</loc>
-        <lastmod>2025-02-07T20:03:57+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/132</loc>
+        <lastmod>2025-02-07T18:03:57+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/133</loc>
-        <lastmod>2025-02-08T18:09:41+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/133</loc>
+        <lastmod>2025-02-08T16:09:41+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/134</loc>
-        <lastmod>2025-02-08T20:30:42+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/134</loc>
+        <lastmod>2025-02-08T18:30:42+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/135</loc>
-        <lastmod>2025-02-09T14:20:07+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/135</loc>
+        <lastmod>2025-02-09T12:20:07+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/138</loc>
-        <lastmod>2025-02-10T18:29:37+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/138</loc>
+        <lastmod>2025-02-10T16:29:37+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/139</loc>
-        <lastmod>2025-02-10T21:29:30+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/139</loc>
+        <lastmod>2025-02-10T19:29:30+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/140</loc>
-        <lastmod>2025-02-11T19:59:56+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/140</loc>
+        <lastmod>2025-02-11T17:59:56+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/141</loc>
-        <lastmod>2025-02-12T20:36:22+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/141</loc>
+        <lastmod>2025-02-12T18:36:22+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/142</loc>
-        <lastmod>2025-02-13T21:06:14+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/142</loc>
+        <lastmod>2025-02-13T19:06:14+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/143</loc>
-        <lastmod>2025-03-05T16:55:21+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/143</loc>
+        <lastmod>2025-03-05T14:55:21+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/144</loc>
-        <lastmod>2025-02-17T22:50:50+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/144</loc>
+        <lastmod>2025-02-17T20:50:50+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/145</loc>
-        <lastmod>2025-02-18T19:26:16+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/145</loc>
+        <lastmod>2025-02-18T17:26:16+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/146</loc>
-        <lastmod>2025-02-19T20:24:54+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/146</loc>
+        <lastmod>2025-02-19T18:24:54+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/147</loc>
-        <lastmod>2025-02-23T19:38:15+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/147</loc>
+        <lastmod>2025-02-23T17:38:15+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/148</loc>
-        <lastmod>2025-02-25T22:00:11+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/148</loc>
+        <lastmod>2025-02-25T20:00:11+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/149</loc>
-        <lastmod>2025-02-28T04:21:40+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/149</loc>
+        <lastmod>2025-02-28T02:21:40+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/151</loc>
-        <lastmod>2025-03-02T22:31:20+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/151</loc>
+        <lastmod>2025-03-02T20:31:20+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/152</loc>
-        <lastmod>2025-03-04T00:30:40+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/152</loc>
+        <lastmod>2025-03-03T22:30:40+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/154</loc>
-        <lastmod>2025-03-06T23:16:55+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/154</loc>
+        <lastmod>2025-03-06T21:16:55+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/155</loc>
-        <lastmod>2025-03-15T00:16:51+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/155</loc>
+        <lastmod>2025-03-14T22:16:51+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/156</loc>
-        <lastmod>2025-03-27T15:34:15+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/156</loc>
+        <lastmod>2025-03-27T13:34:15+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/157</loc>
-        <lastmod>2025-03-17T19:22:25+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/157</loc>
+        <lastmod>2025-03-17T17:22:25+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/158</loc>
-        <lastmod>2025-03-18T20:46:47+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/158</loc>
+        <lastmod>2025-03-18T18:46:47+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/159</loc>
-        <lastmod>2025-03-20T21:08:20+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/159</loc>
+        <lastmod>2025-03-20T19:08:20+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/160</loc>
-        <lastmod>2025-03-24T16:32:32+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/160</loc>
+        <lastmod>2025-03-24T14:32:32+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/161</loc>
-        <lastmod>2025-03-25T22:17:00+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/161</loc>
+        <lastmod>2025-03-25T20:17:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/162</loc>
-        <lastmod>2025-03-26T23:33:02+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/162</loc>
+        <lastmod>2025-03-26T21:33:02+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/163</loc>
-        <lastmod>2025-04-05T15:23:47+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/163</loc>
+        <lastmod>2025-04-05T13:23:47+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/164</loc>
-        <lastmod>2025-04-05T15:23:21+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/164</loc>
+        <lastmod>2025-04-05T13:23:21+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
         <loc>https://hatf.sa/blogns/165</loc>
@@ -735,37 +857,42 @@
         <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/166</loc>
-        <lastmod>2025-05-20T21:30:51+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/166</loc>
+        <lastmod>2025-04-08T16:36:38+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/167</loc>
-        <lastmod>2025-05-20T21:32:21+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/167</loc>
+        <lastmod>2025-04-09T16:43:48+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/170</loc>
-        <lastmod>2025-05-01T15:28:33+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/170</loc>
+        <lastmod>2025-05-01T12:28:33+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/171</loc>
-        <lastmod>2025-05-04T20:22:39+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/171</loc>
+        <lastmod>2025-05-04T17:22:39+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/172</loc>
-        <lastmod>2025-05-05T20:47:59+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/172</loc>
+        <lastmod>2025-05-05T17:47:59+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogns/173</loc>
-        <lastmod>2025-05-07T22:40:54+00:00</lastmod>
-
+        <loc>https://hatf.sa/blogns/173</loc>
+        <lastmod>2025-05-07T19:40:54+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
-
         <loc>https://hatf.sa/blogns/174</loc>
         <lastmod>2025-05-20T19:17:16+00:00</lastmod>
         <changefreq>weekly</changefreq>
@@ -779,7 +906,37 @@
             </url>
     <url>
         <loc>https://hatf.sa/blogns/182</loc>
-        <lastmod>2025-05-20T19:05:15+00:00</lastmod>
+        <lastmod>2025-05-20T21:50:10+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>https://hatf.sa/blogns/183</loc>
+        <lastmod>2025-05-24T14:42:36+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>https://hatf.sa/blogns/184</loc>
+        <lastmod>2025-05-25T17:46:05+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>https://hatf.sa/blogns/185</loc>
+        <lastmod>2025-05-27T21:19:30+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>https://hatf.sa/blogns/186</loc>
+        <lastmod>2025-05-28T19:26:20+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>https://hatf.sa/blogns/187</loc>
+        <lastmod>2025-06-02T20:27:26+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
